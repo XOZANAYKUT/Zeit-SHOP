@@ -15,13 +15,14 @@
 
     {% block corecss %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'styles/custom.css' %}">
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
+        <script src="https://kit.fontawesome.com/7e694a3053.js" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
@@ -33,39 +34,88 @@
     <title>Zeit {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">Zeit</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-                        </form>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">My Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">$0.00</a>
-                    </li>
-                </ul>
+
+    <header class="container-fluid fixed-top bg-light py-3">
+        <div class="container" >
+            <div class="row align-items-center">
+                <div class="col-lg-3 col-md-4 col-12 text-center text-md-left">
+                    <a href="{% url 'home' %}" class="navbar-brand main-logo-link">
+                        <img src="{% static 'images/logo.png' %}" alt=" Logo" width="60" height="60">
+                        <h2><strong>S</strong>ofa</h2>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-md-4 col-12 my-2 my-md-0 text-center">
+                    <form class="form-inline justify-content-center">
+                        <input class="form-control mr-sm-2 border border-dark rounded-0" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-dark rounded-0" type="submit">Search</button>
+                    </form>
+                </div>
+                <div class="col-lg-3 col-md-4 col-12 text-center text-md-right">
+                    <ul class="list-inline my-0">
+                        <li class="list-inline-item dropdown">
+                            <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <div class="text-center">
+                                    <div><i class="fas fa-user-circle fa-lg"></i></div>
+                                    <p class="my-0">My Account</p>
+                                </div>
+                            </a>
+                            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="#" class="dropdown-item">Product Management</a>
+                                    {% endif %}
+                                    <a href="#" class="dropdown-item">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                                {% endif %}
+                            </div>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                                href="#">
+                                <div class="text-center">
+                                    <div> <i class="fas fa-shopping-cart fa-lg"></i></div>
+                                    <p class="my-0">
+                                        {% if grand_total %}
+                                            ${{ grand_total|floatformat:2 }}
+                                        {% else %}
+                                            $0.00
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </nav>
-</header>
 
-
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
+            </nav>
+        </div>
+        <div id="delivery-banner" class="row text-center">
+            <div class="col bg-black text-white">
+                <h4 class="logo-font my-1">Free delivery on orders over ${{ free_shipping_threshold }}!</h4>                
+            </div>            
+        </div>
+        
+    </header>   
+    
 {% if messages %}
     <div class="message-container"></div>
 {% endif %}
 
 {% block page_header %}
+
 {% endblock %}
 
 {% block content %}
@@ -73,6 +123,44 @@
 
 {% block postloadjs %}
 {% endblock %}
+
+
+
+<footer class="footer py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>Categories</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Furniture</a></li>
+                    <li><a href="#">Decor</a></li>
+                    <li><a href="#">Lighting</a></li>
+                    <li><a href="#">Special Offers</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Connect With Us</h5>
+                <ul class="list-unstyled">
+                    <li><a href="//de-de.facebook.com/" class="text-decoration-none"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                    <li><a href="https://twitter.com/?lang=tr" class="text-decoration-none"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="https://www.instagram.com/" class="text-decoration-none"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://www.linkedin.com/feed/" class="text-decoration-none"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                    <li><a href="mailto:example@gmail.com" class="text-decoration-none"><i class="far fa-envelope"></i> example@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="col-md-4">
+                <h5>Contact Us</h5>
+                <address>
+                    <strong>Sofa</strong><br>
+                    123 Germany, Hannover<br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:info@example.com">info@example.com</a><br>
+                
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+            </div>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

@@ -1,0 +1,197 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato';
+}
+
+/* Mobil Cihazlar İçin Stiller */
+@media (max-width: 768px) {
+    body {
+        height: auto;
+    }
+}
+
+/* Buton Stilleri */
+.btn,
+.btn-black,
+.btn-outline-black,
+.shop-now-button {
+    border-radius: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.btn-black,
+.btn-outline-black,
+.shop-now-button {
+    min-width: 260px;
+}
+
+.btn-black,
+.btn-outline-black {
+    background: black;
+    color: white;
+}
+
+.btn-outline-black {
+    background: white;
+    color: black !important;
+    border: 1px solid black;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: black;
+    color: white !important;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+/* İkon Stilleri */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Diğer Stiller */
+.logo-font {
+    text-transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+/* Link ve Buton El İşareti Stilleri */
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+/* Arama Alanı Vurgusu Stilleri */
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
+/* Footer Stilleri */
+.footer {
+    background-color: #dcdcdc;
+    padding: 60px 0;
+    color: #333;
+}
+
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: #555;
+    text-decoration: none;
+}
+
+.footer ul li a:hover {
+    color: #007bff;
+}
+
+.footer address {
+    font-style: normal;
+    color: #777;
+    margin-top: 20px;
+}
+
+.footer address strong {
+    color: #050505;
+}
+
+.footer h5 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Billboard Stilleri */
+#billboard {
+    padding: 100px 0;
+}
+
+#billboard .banner-content {
+    padding: 20px;
+}
+
+#billboard h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+#billboard .image-holder img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Company Services Stilleri */
+#company-services {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+}
+
+#company-services .icon-box {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+#company-services .card-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#company-services p {
+    font-size: 1rem;
+    color: #777;
+}
+
+#company-services .icon-box-icon svg {
+    width: 40px;
+    height: 40px;
+    fill: #007bff;
+}
