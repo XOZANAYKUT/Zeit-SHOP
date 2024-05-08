@@ -1,0 +1,34 @@
+[
+    {
+        "pk": 1,
+        "model": "products.category",
+        "fields": {
+            "name": "All Products",
+            "friendly_name": "All Products"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "products.category",
+        "fields": {
+            "name": "Sofas",
+            "friendly_name": "Sofas"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "products.category",
+        "fields": {
+            "name": "Homeware",
+            "friendly_name": "Homeware"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "products.category",
+        "fields": {
+            "name": "Special Offers",
+            "friendly_name": "Special Offers"
+        }
+    }
+]
