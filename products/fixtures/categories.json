@@ -12,42 +12,14 @@
         "name": "fabric_sofas",
         "friendly_name": "Fabric Sofas"
     }
-}, {
-    "pk": 3,
-    "model": "products.category",
-    "fields": {
-        "name": "sectional_sofas",
-        "friendly_name": "Sectional Sofas"
-    }
-}, {
+},{
     "pk": 4,
     "model": "products.category",
     "fields": {
         "name": "sleeper_sofas",
         "friendly_name": "Sleeper Sofas"
     }
-}, {
-    "pk": 5,
-    "model": "products.category",
-    "fields": {
-        "name": "coffee_tables",
-        "friendly_name": "Coffee Tables"
-    }
-}, {
-    "pk": 6,
-    "model": "products.category",
-    "fields": {
-        "name": "console_tables",
-        "friendly_name": "Console Tables"
-    }
-}, {
-    "pk": 7,
-    "model": "products.category",
-    "fields": {
-        "name": "tv_stands",
-        "friendly_name": "TV Stands"
-    }
-}, {
+},{
     "pk": 7,
     "model": "products.category",
     "fields": {
