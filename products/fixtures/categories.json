@@ -1,34 +1,93 @@
-[
-    {
-        "pk": 1,
-        "model": "products.category",
-        "fields": {
-            "name": "All Products",
-            "friendly_name": "All Products"
-        }
-    },
-    {
-        "pk": 2,
-        "model": "products.category",
-        "fields": {
-            "name": "Sofas",
-            "friendly_name": "Sofas"
-        }
-    },
-    {
-        "pk": 3,
-        "model": "products.category",
-        "fields": {
-            "name": "Homeware",
-            "friendly_name": "Homeware"
-        }
-    },
-    {
-        "pk": 4,
-        "model": "products.category",
-        "fields": {
-            "name": "Special Offers",
-            "friendly_name": "Special Offers"
-        }
+[{
+    "pk": 1,
+    "model": "products.category",
+    "fields": {
+        "name": "leather_sofas",
+        "friendly_name": "Leather Sofas"
     }
+}, {
+    "pk": 2,
+    "model": "products.category",
+    "fields": {
+        "name": "fabric_sofas",
+        "friendly_name": "Fabric Sofas"
+    }
+}, {
+    "pk": 3,
+    "model": "products.category",
+    "fields": {
+        "name": "sectional_sofas",
+        "friendly_name": "Sectional Sofas"
+    }
+}, {
+    "pk": 4,
+    "model": "products.category",
+    "fields": {
+        "name": "sleeper_sofas",
+        "friendly_name": "Sleeper Sofas"
+    }
+}, {
+    "pk": 5,
+    "model": "products.category",
+    "fields": {
+        "name": "coffee_tables",
+        "friendly_name": "Coffee Tables"
+    }
+}, {
+    "pk": 6,
+    "model": "products.category",
+    "fields": {
+        "name": "console_tables",
+        "friendly_name": "Console Tables"
+    }
+}, {
+    "pk": 7,
+    "model": "products.category",
+    "fields": {
+        "name": "tv_stands",
+        "friendly_name": "TV Stands"
+    }
+}, {
+    "pk": 7,
+    "model": "products.category",
+    "fields": {
+        "name": "chairs",
+        "friendly_name": "Chairs"
+    }
+},{
+    "pk": 7,
+    "model": "products.category",
+    "fields": {
+        "name": "tables",
+        "friendly_name": "Tables"
+    }
+},{
+    "pk": 7,
+    "model": "products.category",
+    "fields": {
+        "name": "accessories",
+        "friendly_name": "Accessories"
+    }
+},{
+    "pk": 8,
+    "model": "products.category",
+    "fields": {
+        "name": "new_arrivals",
+        "friendly_name": "New Arrivals"
+    }
+}, {
+    "pk": 9,
+    "model": "products.category",
+    "fields": {
+        "name": "deals",
+        "friendly_name": "Deals"
+    }
+}, {
+    "pk": 9,
+    "model": "products.category",
+    "fields": {
+        "name": "clearance",
+        "friendly_name": "Clearance"
+    }
+}
 ]
