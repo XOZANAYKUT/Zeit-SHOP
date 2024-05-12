@@ -135,10 +135,10 @@
             <div class="col-md-4">
                 <h5>Categories</h5>
                 <ul class="list-unstyled">
-                    <li><a href="#">Furniture</a></li>
-                    <li><a href="#">Decor</a></li>
-                    <li><a href="#">Lighting</a></li>
-                    <li><a href="#">Special Offers</a></li>
+                    <li><a href="{% url 'products' %}">All Products</a></li>
+                    <li><a href="{% url 'products' %}?category=leather_sofas,fabric_sofas,sleeper_sofas">All Sofas</a></li>
+                    <li><a href="{% url 'products' %}?category=chairs,tables,accessories">All Homeware</a></li>
+                    <li><a href="{% url 'products' %}?category=new_arrivals,deals,clearance">All Specials</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
