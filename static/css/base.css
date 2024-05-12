@@ -106,6 +106,34 @@ body {
     padding: 0.75rem 1.5rem; 
 }
 
+.btt-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #ffffff;
+    border: 1px solid #000000; /* kenarlık ekledik */
+    border-radius: 50%; /* düğmenin kenarlarını yuvarladık */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    z-index: 9999; /* Diğer içeriklerin üstünde olmasını sağlar */
+}
+
+.btt-button:hover {
+    background-color: #f0f0f0;
+}
+
+.btt-link {
+    text-decoration: none;
+}
+
+.btt-link i {
+    font-size: 20px;
+    color: #000000; /* ikon rengini belirledik */
+}
 .container-fluid {
     position: relative;
     z-index: 2;
