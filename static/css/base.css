@@ -3,153 +3,12 @@ html {
 }
 
 body {
+    background: url('/media/homepage_background_cropped.jpg') no-repeat center center fixed;
     background-size: cover;
     height: calc(100vh - 164px);
     color: #555;
     font-family: 'Lato';
 }
-
-/* Mobil Cihazlar İçin Stiller */
-@media (max-width: 768px) {
-    body {
-        height: auto;
-    }
-}
-
-/* Buton Stilleri */
-.btn,
-.btn-black,
-.btn-outline-black,
-.shop-now-button {
-    border-radius: 0;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-}
-
-.btn-black,
-.btn-outline-black,
-.shop-now-button {
-    min-width: 260px;
-}
-
-.btn-black,
-.btn-outline-black {
-    background: black;
-    color: white;
-}
-
-.btn-outline-black {
-    background: white;
-    color: black !important;
-    border: 1px solid black;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: black;
-    color: white !important;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
-}
-
-/* İkon Stilleri */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
-
-/* Diğer Stiller */
-.logo-font {
-    text-transform: uppercase;
-}
-
-.main-logo-link {
-    width: fit-content;
-}
-
-.text-black {
-    color: #000 !important;
-}
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-.bg-black {
-    background: #000 !important;
-}
-
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.6);
-    z-index: 1;
-}
-
-.category-badge:hover .badge {
-    background: #212529 !important;
-    color: #c83e3e !important;
-    font-size: 1.1rem; 
-    padding: 0.75rem 1.5rem; 
-}
-
-.btt-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: #ffffff;
-    border: 1px solid #000000; /* kenarlık ekledik */
-    border-radius: 50%; /* düğmenin kenarlarını yuvarladık */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease-in-out;
-    z-index: 9999; /* Diğer içeriklerin üstünde olmasını sağlar */
-}
-
-.btt-button:hover {
-    background-color: #f0f0f0;
-}
-
-.btt-link {
-    text-decoration: none;
-}
-
-.btt-link i {
-    font-size: 20px;
-    color: #000000; /* ikon rengini belirledik */
-}
-.container-fluid {
-    position: relative;
-    z-index: 2;
-}
-/* Link ve Buton El İşareti Stilleri */
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-/* Arama Alanı Vurgusu Stilleri */
-input[name='q']::placeholder {
-    color: #aab7c4;
-}
-
 /* Footer Stilleri */
 .footer {
     background-color: #dcdcdc;
@@ -191,57 +50,34 @@ input[name='q']::placeholder {
     margin-bottom: 20px;
 }
 
-/* Billboard Stilleri */
-#billboard {
-    padding: 100px 0;
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
-#billboard .banner-content {
-    padding: 20px;
+.logo-font {
+    text-transform: uppercase;
 }
 
-#billboard h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-bottom: 20px;
+.main-logo-link {
+    width: fit-content;
 }
 
-#billboard .image-holder img {
-    max-width: 100%;
-    height: auto;
+.shop-now-button {
+    background: black;
+    color: white;
+    min-width: 260px;
 }
 
-/* Company Services Stilleri */
-#company-services {
-    background-color: #f9f9f9;
-    padding: 50px 0;
+.btn-black {
+    background: black;
+    color: white;
 }
 
-#company-services .icon-box {
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    margin-bottom: 30px;
-}
-
-#company-services .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-#company-services p {
-    font-size: 1rem;
-    color: #777;
-}
-
-#company-services .icon-box-icon svg {
-    width: 40px;
-    height: 40px;
-    fill: #007bff;
-}
 .btn-outline-black {
     background: white;
     color: black !important; /* use important to override link colors for <a> elements */
@@ -253,4 +89,83 @@ input[name='q']::placeholder {
 .btn-outline-black:focus {
     background: black;
     color: white !important;
+}
+
+.shop-now-button:hover,
+.shop-now-button:active,
+.shop-now-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+.container-fluid {
+    position: relative; 
+    z-index: 2; 
+   
+}
+.bg-black {
+    background: #000 !important;
+}
+
+
+a.category-badge > span.badge:hover {
+    background: #212529 !important;
+    color: #fff !important;
+}
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 116px);
+    }
 }
