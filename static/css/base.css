@@ -29,6 +29,7 @@ body {
     text-decoration: none;
 }
 
+
 .footer ul li a:hover {
     color: #007bff;
 }
@@ -49,6 +50,11 @@ body {
     margin-bottom: 20px;
 }
 
+.banner-message {
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 50px;
+}
 /* from Bulma */
 .icon {
     align-items: center;
