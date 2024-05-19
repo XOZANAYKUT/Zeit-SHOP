@@ -37,7 +37,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 text-center">
                     <h2 class="section-title mb-4">About Us</h2>
-                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vehicula ex vel ex ultricies, nec placerat elit vehicula.</p>
+                    <p id="about-text" class="lead">Welcome to Sofa Company! We are dedicated to providing you with the finest quality furniture and exceptional customer service. Our mission is to transform your living space into a haven of comfort and style. With our wide selection of beautifully crafted furniture pieces, you can create the home of your dreams. Explore our collection today and discover the perfect pieces to complement your lifestyle.</p>
                 </div>
             </div>
         </div>
@@ -83,4 +83,23 @@
             </div>
         </div>
     </section>
+{% endblock %}
+
+{% block extra_js %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var aboutText = document.getElementById("about-text");
+            var aboutTexts = [
+                "Sofa has been operating in the furniture industry for over 10 years.",
+                "We strive to offer the highest quality products at the most competitive prices, always prioritizing customer satisfaction.",
+                "Sofa aims to enhance your homes with its modern and stylish designs."
+            ];
+            var currentIndex = 0;
+
+            setInterval(function() {
+                aboutText.textContent = aboutTexts[currentIndex];
+                currentIndex = (currentIndex + 1) % aboutTexts.length;
+            }, 5000); // Change text every 5 seconds
+        });
+    </script>
 {% endblock %}
