@@ -141,7 +141,6 @@ a.category-badge > span.badge:hover {
 .remove-item {
     cursor: pointer;
 }
-
 input[name='q']::placeholder {
     color: #aab7c4;
 }
