@@ -10,7 +10,7 @@ body {
 }
 /* Footer Stilleri */
 .footer {
-    background-color: #dccc92;
+    background-color: #daac41;
     padding: 60px 0;
     color: #0c0b0b;
 }
@@ -240,7 +240,7 @@ input[name='q']::placeholder {
     border-radius: 0;
 }
 #about-us {
-    background-color: #f8f9fa; /* Light grey background */
+    background-color: #daac41; /* Light grey background */
     padding: 50px 0;
     position: relative; /* Ensure proper positioning */
     min-height: 250px; /* Set a minimum height for the section */
@@ -248,7 +248,7 @@ input[name='q']::placeholder {
 }
 
 #about-us .section-title {
-    color: #343a40; /* Dark grey title */
+    color: #dd3d31; /* Dark grey title */
     margin-top: 0; /* Remove default top margin */
     font-size: 2.5rem; /* Larger font size for better emphasis */
 }
@@ -260,7 +260,7 @@ input[name='q']::placeholder {
 }
 
 #about-text {
-    color: #6c757d; /* Medium grey text */
+    color: #040404; /* Medium grey text */
     transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
     position: absolute; /* Position absolute to maintain layout */
     width: 100%; /* Ensure text takes up full width */
