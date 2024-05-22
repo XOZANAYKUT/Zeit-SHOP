@@ -34,15 +34,16 @@
 
     <section id="about-us" class="py-5">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
+            <div class="row">
+                <div class="col-md-8 text-center mx-auto">
                     <h2 class="section-title mb-4">About Us</h2>
-                    <p id="about-text" class="lead">Welcome to Sofa Company! We are dedicated to providing you with the finest quality furniture and exceptional customer service. Our mission is to transform your living space into a haven of comfort and style. With our wide selection of beautifully crafted furniture pieces, you can create the home of your dreams. Explore our collection today and discover the perfect pieces to complement your lifestyle.</p>
+                    <div id="about-text-container">
+                        <p id="about-text" class="lead">Welcome to Sofa Company! We offer high-quality furniture and exceptional service. Transform your space with our stylish and comfortable pieces. Explore our collection to find your perfect match</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
-
     <section id="company-services" class="py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -85,21 +86,26 @@
     </section>
 {% endblock %}
 
+
 {% block extra_js %}
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var aboutText = document.getElementById("about-text");
-            var aboutTexts = [
-                "Sofa has been operating in the furniture industry for over 10 years.",
-                "We strive to offer the highest quality products at the most competitive prices, always prioritizing customer satisfaction.",
-                "Sofa aims to enhance your homes with its modern and stylish designs."
-            ];
-            var currentIndex = 0;
+document.addEventListener("DOMContentLoaded", function() {
+    var aboutText = document.getElementById("about-text");
+    var aboutTexts = [
+        "Sofa has been operating in the furniture industry for over 10 years.",
+        "We strive to offer the highest quality products at the most competitive prices, always prioritizing customer satisfaction.",
+        "Sofa aims to enhance your homes with its modern and stylish designs."
+    ];
+    var currentIndex = 0;
 
-            setInterval(function() {
-                aboutText.textContent = aboutTexts[currentIndex];
-                currentIndex = (currentIndex + 1) % aboutTexts.length;
-            }, 5000); // Change text every 5 seconds
-        });
+    setInterval(function() {
+        aboutText.style.opacity = 0; // Fade out text
+        setTimeout(function() {
+            aboutText.textContent = aboutTexts[currentIndex];
+            aboutText.style.opacity = 1; // Fade in text
+        }, 500); // Wait for fade out to complete
+        currentIndex = (currentIndex + 1) % aboutTexts.length;
+    }, 5000); // Change text every 5 seconds
+});
     </script>
 {% endblock %}

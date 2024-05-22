@@ -239,6 +239,37 @@ input[name='q']::placeholder {
     border-color: #dc3545;
     border-radius: 0;
 }
+#about-us {
+    background-color: #f8f9fa; /* Light grey background */
+    padding: 50px 0;
+    position: relative; /* Ensure proper positioning */
+    min-height: 250px; /* Set a minimum height for the section */
+    text-align: center; /* Center text horizontally */
+}
+
+#about-us .section-title {
+    color: #343a40; /* Dark grey title */
+    margin-top: 0; /* Remove default top margin */
+    font-size: 2.5rem; /* Larger font size for better emphasis */
+}
+
+#about-text-container {
+    position: relative; /* Ensure proper positioning */
+    height: 100px; /* Fixed height for the text container */
+    overflow: hidden; /* Hide overflow */
+}
+
+#about-text {
+    color: #6c757d; /* Medium grey text */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for opacity */
+    position: absolute; /* Position absolute to maintain layout */
+    width: 100%; /* Ensure text takes up full width */
+    top: 0; /* Align text to the top */
+    left: 0; /* Align text to the left */
+    text-align: center; /* Center text horizontally */
+    padding: 0 15px; /* Add some padding for better readability */
+    margin: 0; /* Remove any default margin */
+}
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
