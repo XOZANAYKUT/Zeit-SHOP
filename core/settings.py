@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-lm#dtg7ju4*7h=23zg2&bn!$_6qy$cj3w+t31-yt9=xb&2i#o3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://zeitshoop-d12dd7818931.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['zeitshoop-d12dd7818931.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -131,7 +131,6 @@ else:
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
