@@ -1,1 +1,1 @@
-web: gunicorn zeit-shop.wsgi:application
+web: gunicorn zeit_shop.wsgi:application
