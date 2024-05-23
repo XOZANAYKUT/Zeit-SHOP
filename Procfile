@@ -1,0 +1,1 @@
+web: gunicorn Zeit-SHOP.wsgi:application
