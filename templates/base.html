@@ -36,84 +36,84 @@
     <title>Zeit {% block extra_title %}{% endblock %}</title>
 </head>
 <body>
-    <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="navbar-brand main-logo-link">
-                    <img src="{% static 'images/logo.png' %}" alt=" Logo" width="60" height="60">
-                    <h2><strong>S</strong>ofa</h2>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="{% url 'products' %}">
-                    <div class="input-group w-100 rounded-pill shadow-sm">
-                        <input class="form-control border-0 rounded-pill" type="text" name="q" placeholder="Search our site" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary rounded-pill ml-2" type="submit">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
+  <header class="container-fluid fixed-top">
+    <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex align-items-center">
+        <div class="col-12 col-lg-4 text-center text-lg-left my-2 my-lg-0">
+            <a href="{% url 'home' %}" class="navbar-brand d-flex align-items-center justify-content-center justify-content-lg-start">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" width="60" height="60">
+                <h2 class="ml-2 mb-0"><strong>S</strong>ofa</h2>
+            </a>
+        </div>
+        <div class="col-12 col-lg-4 my-2 my-lg-0">
+            <form method="GET" action="{% url 'products' %}">
+                <div class="input-group rounded-pill shadow-sm">
+                    <input class="form-control border-0 rounded-pill" type="text" name="q" placeholder="Search our site" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary rounded-pill" type="submit">
+                            <i class="fas fa-search"></i>
+                        </button>
                     </div>
-                </form>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown">
-                        <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <div class="text-center">
-                                <div><i class="fas fa-user-circle fa-lg"></i></div>
-                                <p class="my-0">My Account</p>
-                            </div>
-                        </a>
-                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
-                            {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
-                                {% endif %}
-                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-                            {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-                            {% endif %}
-                        </div>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
-                            <div class="text-center">
-                                <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-                                <p class="my-0">
-                                    {% if grand_total %}
-                                        ${{ grand_total|floatformat:2 }}
-                                    {% else %}
-                                        $0.00
-                                    {% endif %}
-                                </p>
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="row bg-white">
-            <nav class="navbar navbar-expand-lg navbar-light w-100">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% include 'includes/mobile-top-header.html' %}
-                {% include 'includes/main-nav.html' %}
-            </nav>
-        </div>
-        <div id="delivery-banner" class="row text-center py-3 bg-dark text-white">
-            <div class="col">
-                <div id="banner-messages" class="d-inline-block">
-                    <span class="banner-message">🚚 Free shipping on orders over ${{ free_delivery_threshold }}!</span>
-                    <span class="banner-message">🎉 20% off on your first order!</span>
-                    <span class="banner-message">🛋️ Check out our new arrivals!</span>
                 </div>
+            </form>
+        </div>
+        <div class="col-12 col-lg-4 my-2 my-lg-0">
+            <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                <li class="list-inline-item dropdown">
+                    <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <i class="fas fa-user-circle fa-lg"></i>
+                            <p class="my-0">My Account</p>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu border-0 shadow" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                            <a href="{% url 'add_product' %}" class="dropdown-item">Product Management</a>
+                            {% endif %}
+                            <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                        {% else %}
+                            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-inline-item">
+                    <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_bag' %}">
+                        <div class="text-center">
+                            <i class="fas fa-shopping-cart fa-lg"></i>
+                            <p class="my-0">
+                                {% if grand_total %}
+                                    ${{ grand_total|floatformat:2 }}
+                                {% else %}
+                                    $0.00
+                                {% endif %}
+                            </p>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            {% include 'includes/mobile-top-header.html' %}
+            {% include 'includes/main-nav.html' %}
+        </nav>
+    </div>
+    <div id="delivery-banner" class="row text-center py-3 bg-dark text-white">
+        <div class="col">
+            <div id="banner-messages" class="d-inline-block">
+                <span class="banner-message mr-3">🚚 Free shipping on orders over ${{ free_delivery_threshold }}!</span>
+                <span class="banner-message mr-3">🎉 20% off on your first order!</span>
+                <span class="banner-message">🛋️ Check out our new arrivals!</span>
             </div>
         </div>
-    </header>
+    </div>
+</header>
     
     
       

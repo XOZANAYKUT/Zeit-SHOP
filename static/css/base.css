@@ -66,6 +66,9 @@ body {
 
 .logo-font {
     text-transform: uppercase;
+    margin-top: 25px; /* "Our Products" başlığını biraz aşağıya indirir */
+    font-size: 1.2rem; /* Font boyutunu belirli bir oranda artırır */
+    font-weight: bold;
 }
 
 .main-logo-link {
@@ -269,6 +272,9 @@ input[name='q']::placeholder {
     text-align: center; /* Center text horizontally */
     padding: 0 15px; /* Add some padding for better readability */
     margin: 0; /* Remove any default margin */
+}
+.dropdown-menu {
+    background-color: blue; /* Dropdown menü arka plan rengini mavi yapar */
 }
 /* -------------------------------- Media Queries */
 
