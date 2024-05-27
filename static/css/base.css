@@ -421,10 +421,11 @@ input[name='q']::placeholder {
     color: #ff6600;
 }
 #topnav .fa-user-circle,
-#topnav .fa-shopping-cart {
-    font-size: 2rem; /* Increase the size of the icons */
+#topnav .fa-shopping-cart,
+#topnav .fa-heart {
+    font-size: 2rem;
     margin-right: 10px;
-    color: #004aad;
+    color: #0D87DC;
 }
 
 #topnav .nav-link p {

@@ -1,13 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div>
-{% endblock %}
 
 {% block content %}
     <div class="overlay"></div>
@@ -36,11 +29,6 @@
                             <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
                         </a>
                     </p>
-                    {% endif %}
-                    {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                    {% else %}
-                        <small class="text-muted">No Rating</small>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
@@ -94,11 +82,76 @@
                     </form>
                 </div>
             </div>
+            {% if request.user.is_authenticated %}
+                {% if is_in_wishlist %}
+                <form method="post" action="{% url 'remove_from_wishlist' product.id %}">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Remove from Wishlist">
+                </form>
+                {% else %}
+                <form id="wishlist-form" method="post" action="{% url 'add_to_wishlist' product.id %}">
+                    {% csrf_token %}
+                    <input id="wishlist-btn" type="submit" class="btn btn-black rounded-0 text-uppercase mt-5" value="Add to Wishlist">
+                </form>
+                {% endif %}
+                {% else %}
+                <p>Please <a href="{% url 'account_login' %}">log in</a> to add this product to your wishlist.</p>
+                {% endif %}
         </div>
+        <h3>Ratings:</h3>
+<p class="small mt-1 mb-0">Average Rating {{ average_rating }}</p>
+    <ul>
+        {% for rating in ratings %}
+        <li>
+            {{ rating.score }} stars by {{ rating.user.username }}
+        </li>
+        {% endfor %}
+        <h3>Add Your Rating:</h3>
+        {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" name="rating_submit">Submit Rating</button>
+        </form>
+        {% else %}
+        <p>You need to <a href="{% url 'account_login' %}">login</a> to add a rating.</p>
+        {% endif %}
     </div>
+
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
 {% include 'products/includes/quantity_input_script.html' %}
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var wishlistForm = document.getElementById("wishlist-form");
+        var wishlistBtn = document.getElementById("wishlist-btn");
+    
+        wishlistForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(wishlistForm);
+    
+            fetch(wishlistForm.action, {
+                method: "POST",
+                body: formData,
+                headers: {
+                    "X-CSRFToken": formData.get("csrfmiddlewaretoken")
+                }
+            }).then(response => {
+                if (response.ok) {
+                    if (wishlistBtn.value.trim() === "Add to Wishlist") {
+                        wishlistBtn.value = "Remove from Wishlist";
+                    } else {
+                        wishlistBtn.value = "Add to Wishlist";
+                    }
+                }
+            }).catch(error => {
+                console.error("Error:", error);
+            });
+        });
+    });
+</script>
+
 {% endblock %}
+

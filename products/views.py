@@ -3,8 +3,8 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category
-from .forms import ProductForm
+from .models import Product, Category, Rating
+from .forms import ProductForm, RatingForm
 # Create your views here.
 
 def all_products(request):
@@ -60,9 +60,31 @@ def product_detail(request, product_id):
     """ A view to show individual product details """
 
     product = get_object_or_404(Product, pk=product_id)
+    is_in_wishlist = False
+    if request.user.is_authenticated:
+        is_in_wishlist = request.user.favorite.filter(id=product_id).exists()
 
+
+    ratings = product.rating_set.all()
+    average_rating = product.average_rating()
+    
+    if request.method == 'POST':
+        form = RatingForm(request.POST)
+        if form.is_valid():
+            rating = form.save(commit=False)
+            rating.product = product
+            rating.user = request.user
+            rating.save()
+            return redirect('product_detail', product_id=product.id)
+    else:
+        form = RatingForm()
+    
     context = {
         'product': product,
+        'is_in_wishlist': is_in_wishlist,
+        'ratings': ratings,
+        'average_rating': average_rating,
+        'form': form,
     }
 
     return render(request, 'products/product_detail.html', context)
@@ -129,3 +151,29 @@ def delete_product(request, product_id):
     product.delete()
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
+
+def wishlist(request):
+
+    products_in_wishlist = 0
+    if request.user.is_authenticated:
+        products_in_wishlist = request.user.favorite.count()
+        
+    if request.user.is_authenticated:
+        return render(request, 'products/wishlist.html')
+    else:
+        messages.error(request, 'You need to be logged in to add products to your wishlist.')
+
+
+def add_to_wishlist(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        request.user.favorite.add(product)
+    return redirect(reverse('product_detail', args=[product.id]))
+
+
+def remove_from_wishlist(request, product_id):
+    product = get_object_or_404(Product, pk=product_id)
+    if request.user.is_authenticated:
+        if request.user.favorite.filter(id=product_id).exists():
+            request.user.favorite.remove(product)
+    return redirect(reverse('product_detail', args=[product.id]))
