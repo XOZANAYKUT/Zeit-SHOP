@@ -1,31 +1,35 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
             <div class="col">
-                <h1 class="display-4 text-uppercase text-center">Welcome to Our Store</h1>
-                <p class="lead text-center">Discover high-quality products and exceptional services.</p>
+                <h1 class="display-4">Welcome to Our Store</h1>
+                <p class="lead">Discover high-quality products and exceptional services.</p>
             </div>
         </div>
     </div>
 {% endblock %}
 
 {% block content %}
-    <section id="billboard" class="position-relative overflow-hidden bg-light-blue py-5">
+    <section id="billboard" class="position-relative overflow-hidden py-5">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-6 mb-4 mb-md-0">
-                    <div class="banner-content text-center text-md-start">
-                        <h1 class="display-2 text-uppercase text-dark pb-4">Discover Great Products</h1>
+                    <div class="banner-content">
+                        <h1 class="display-4">Discover Great Products</h1>
                         <p class="lead mb-4">Explore our curated collection of high-quality products that meet your needs and exceed your expectations.</p>
                         <a href="{% url 'products' %}" class="btn btn-dark btn-lg text-uppercase">Shop Now</a>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="image-holder">
-                        <img src="{% static 'images/slide3.jpg' %}" alt="banner" class="img-fluid">
+                        <img src="{% static 'images/slide3.jpg' %}" alt="banner" class="img-fluid rounded">
                     </div>
                 </div>
             </div>
@@ -33,17 +37,19 @@
     </section>
 
     <section id="about-us" class="py-5">
-        <div class="container">
+        <div class="overlay"></div>
+        <div class="container content">
             <div class="row">
                 <div class="col-md-8 text-center mx-auto">
                     <h2 class="section-title mb-4">About Us</h2>
                     <div id="about-text-container">
-                        <p id="about-text" class="lead">Welcome to Sofa Company! We offer high-quality furniture and exceptional service. Transform your space with our stylish and comfortable pieces. Explore our collection to find your perfect match</p>
+                        <p id="about-text" class="lead">Welcome to Sofa Company! We offer high-quality furniture and exceptional service. Transform your space with our stylish and comfortable pieces. Explore our collection to find your perfect match.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <section id="company-services" class="py-5">
         <div class="container">
             <div class="row justify-content-center">
@@ -55,29 +61,29 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="icon-box text-center">
-                        <div><i class="fas fa-truck fa-3x mb-3 text-primary"></i></div>
-                        <h3 class="card-title text-uppercase text-dark">Free Delivery</h3>
+                        <div><i class="fas fa-truck fa-3x mb-3 text-success"></i></div>
+                        <h3 class="card-title">Free Delivery</h3>
                         <p class="mb-0">Enjoy free delivery on all orders, no minimum purchase required.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="icon-box text-center">
-                        <div><i class="fas fa-certificate fa-3x mb-3 text-primary"></i></div>
-                        <h3 class="card-title text-uppercase text-dark">Quality Guarantee</h3>
+                        <div><i class="fas fa-certificate fa-3x mb-3 text-success"></i></div>
+                        <h3 class="card-title">Quality Guarantee</h3>
                         <p class="mb-0">We guarantee the quality of our products to ensure customer satisfaction.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="icon-box text-center">
-                        <div><i class="fas fa-tags fa-3x mb-3 text-primary"></i></div>
-                        <h3 class="card-title text-uppercase text-dark">Daily Offers</h3>
+                        <div><i class="fas fa-tags fa-3x mb-3 text-success"></i></div>
+                        <h3 class="card-title">Daily Offers</h3>
                         <p class="mb-0">Discover daily offers and discounts on a wide range of products.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="icon-box text-center">
-                        <div><i class="fas fa-shield-alt fa-3x mb-3 text-primary"></i></div>
-                        <h3 class="card-title text-uppercase text-dark">Secure Payment</h3>
+                        <div><i class="fas fa-shield-alt fa-3x mb-3 text-success"></i></div>
+                        <h3 class="card-title">Secure Payment</h3>
                         <p class="mb-0">Shop with confidence using our secure payment methods.</p>
                     </div>
                 </div>
@@ -86,15 +92,14 @@
     </section>
 {% endblock %}
 
-
 {% block extra_js %}
     <script>
 document.addEventListener("DOMContentLoaded", function() {
     var aboutText = document.getElementById("about-text");
     var aboutTexts = [
-        "Sofa has been operating in the furniture industry for over 10 years.",
-        "We strive to offer the highest quality products at the most competitive prices, always prioritizing customer satisfaction.",
-        "Sofa aims to enhance your homes with its modern and stylish designs."
+        "Welcome to Sofa Company! We offer high-quality furniture and exceptional service. Transform your space with our stylish and comfortable pieces. Explore our collection to find your perfect match.",
+        "Sofa has been operating in the furniture industry for over ten years. We strive to offer the highest quality products at the most competitive prices, always prioritizing customer satisfaction.",
+        "Sofa aims to enhance your homes with its modern and stylish designs. Our collections feature a wide range of products that are both functional and aesthetically pleasing. Experience the Sofa difference."
     ];
     var currentIndex = 0;
 
