@@ -165,11 +165,17 @@ a.category-badge > span.badge:hover {
 }
 
 .btt-button {
-    height: 42px;
-    width: 42px;
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #f8f9fa;
+    display: none;
+}
+
+.btt-button.show {
+    display: block;
 }
 
 .btt-link,
@@ -347,7 +353,6 @@ input[name='q']::placeholder {
     margin-left: 20px;
 }
 
-/* Media Queries */
 @media (min-width: 1200px) {
     .container {
         max-width: 80%;
@@ -420,6 +425,7 @@ input[name='q']::placeholder {
 .navbar-nav .nav-link:focus {
     color: #ff6600;
 }
+
 #topnav .fa-user-circle,
 #topnav .fa-shopping-cart,
 #topnav .fa-heart {
@@ -441,4 +447,23 @@ input[name='q']::placeholder {
 
 #topnav .nav-link:hover {
     color: #ffcc00; /* Change color on hover for better visibility */
+}
+
+/* Card Styles */
+.card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    object-fit: cover;
+    height: 200px;
+}
+
+/* Sort Selector Styles */
+.sort-select-wrapper select {
+    background-color: #f8f9fa;
 }

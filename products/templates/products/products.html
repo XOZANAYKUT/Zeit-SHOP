@@ -17,7 +17,7 @@
             </div>
         </div>
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-4">
         <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
             <div class="sort-select-wrapper w-50">
                 <select id="sort-selector"
@@ -55,15 +55,15 @@
     <div class="row justify-content-center">
         {% for product in products %}
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <div class="card h-100 border-0 shadow">
-                <div class="card-body">
+            <div class="card h-100 border-0 shadow-sm">
+                <div class="card-body p-3">
                     {% if product.image %}
                     <a href="{% url 'product_detail' product.id %}">
-                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                        <img class="card-img-top img-fluid rounded" src="{{ product.image.url }}" alt="{{ product.name }}">
                     </a>
                     {% else %}
                     <a href="{% url 'product_detail' product.id %}">
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                        <img class="card-img-top img-fluid rounded" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                     </a>
                     {% endif %}
                     <h5 class="card-title mt-3">{{ product.name }}</h5>
@@ -79,8 +79,6 @@
                     {% endif %}
                     {% if product.rating %}
                     <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
-                    {% else %}
-                    <small class="text-muted">No Rating</small>
                     {% endif %}
                     {% if request.user.is_superuser %}
                     <small class="ml-3">
@@ -151,4 +149,9 @@
         }
     })
 </script>
+{% endblock %}
+
+{% block customcss %}
+{{ block.super }}
+
 {% endblock %}
