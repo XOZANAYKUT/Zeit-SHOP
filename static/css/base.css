@@ -467,3 +467,21 @@ input[name='q']::placeholder {
 .sort-select-wrapper select {
     background-color: #f8f9fa;
 }
+
+/* Rating */
+.star-rating {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.star {
+  font-size: 30px;
+  color: #6e6d6d;
+  cursor: pointer;
+}
+
+.star.selected,
+.star.hover {
+  color: #f5b301;
+}

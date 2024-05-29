@@ -3,8 +3,9 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Product, Category, Rating
+from .models import Product, Category, Rating, Comment
 from .forms import ProductForm, RatingForm
+from .forms import CommentForm
 # Create your views here.
 
 def all_products(request):
@@ -56,6 +57,66 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
+def edit_comment(request, product_id, comment_id):
+    """
+    Display an individual comment for edit.
+    *Context*
+
+    `product`
+        An instance of :model:products.Product.
+    `comment`
+        A single comment related to the product.
+    """
+    comment = get_object_or_404(Comment, pk=comment_id)
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == "POST":
+        comment_form = CommentForm(data=request.POST, instance=comment)
+        
+        if comment_form.is_valid() and comment.author == request.user:
+            comment = comment_form.save(commit=False)
+            comment.product = product
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            return redirect(reverse('product_detail', args=[product.id]))
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+    
+    else:
+        comment_form = CommentForm(instance=comment)
+    
+    context = {
+        'product': product,
+        'comment': comment,
+        'comment_form': comment_form,
+    }
+    return render(request, 'products/edit_comment.html', context)
+
+
+def delete_comment(request, product_id, comment_id):
+    """
+    Delete an individual comment.
+
+    **Context**
+
+    ``product``
+        An instance of :model:`products.Product`.
+    ``comment``
+        A single comment related to the product.
+    """
+    comment = get_object_or_404(Comment, pk=comment_id)
+    product = get_object_or_404(Product, pk=product_id)
+
+    if comment.author == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return redirect(reverse('product_detail', args=[product.id]))
+
+
 def product_detail(request, product_id):
     """ A view to show individual product details """
 
@@ -64,27 +125,54 @@ def product_detail(request, product_id):
     if request.user.is_authenticated:
         is_in_wishlist = request.user.favorite.filter(id=product_id).exists()
 
-
     ratings = product.rating_set.all()
     average_rating = product.average_rating()
+
+    user_rating = None
+    if request.user.is_authenticated:
+        user_rating = Rating.objects.filter(product=product, user=request.user).first()
+
     
-    if request.method == 'POST':
+    if request.method == 'POST' and 'rate' in request.POST:
         form = RatingForm(request.POST)
-        if form.is_valid():
+        if user_rating:
+            messages.error(request, 'You have already rated this product.')
+        elif form.is_valid():
             rating = form.save(commit=False)
             rating.product = product
             rating.user = request.user
             rating.save()
+            messages.success(request, 'Rating submitted!')
             return redirect('product_detail', product_id=product.id)
     else:
         form = RatingForm()
-    
+
+    comments = product.comments.all()
+    comment_count = product.comments.count()
+
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            comment = comment_form.save(commit=False)
+            comment.author = request.user
+            comment.product = product
+            comment.save()
+            messages.add_message(request, messages.SUCCESS,
+            'Comment submitted')
+            return redirect('product_detail', product_id=product.id)
+    else:
+        comment_form = CommentForm()
+
     context = {
         'product': product,
         'is_in_wishlist': is_in_wishlist,
         'ratings': ratings,
         'average_rating': average_rating,
         'form': form,
+        'user_rating': user_rating,
+        'comments': comments,
+        'comment_count': comment_count,
+        'comment_form': comment_form,
     }
 
     return render(request, 'products/product_detail.html', context)
