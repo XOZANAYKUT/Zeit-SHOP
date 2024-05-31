@@ -19,3 +19,4 @@ s3transfer==0.10.1
 sqlparse==0.5.0
 stripe==9.7.0
 whitenoise==6.6.0
+python-3.9.19
