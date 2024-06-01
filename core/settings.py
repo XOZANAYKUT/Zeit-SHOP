@@ -15,7 +15,7 @@ ALLOWED_HOSTS = [
     'zeitshoop1-c40db427d283.herokuapp.com',
     '.gitpod.io',
     'localhost',
-    
+    '127.0.0.1',
 ]
 
 INSTALLED_APPS = [
