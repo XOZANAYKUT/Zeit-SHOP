@@ -1,16 +1,22 @@
-/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
     height: 100%;
-    margin: 0;
     font-family: 'Lato', sans-serif;
     color: #080808;
     font-weight: bold;
     background-color: #f4f4f9;
 }
 
+/* General Styles */
 body {
     min-height: calc(100vh - 164px);
 }
+
 .text-white {
     color: #ff6600 !important;
 }
@@ -40,6 +46,14 @@ body {
 @media (max-width: 991px) {
     .header-container {
         padding-top: 116px;
+    }
+
+    .header-container h1 {
+        font-size: 2rem;
+    }
+
+    .header-container p {
+        font-size: 1rem;
     }
 }
 
@@ -221,6 +235,96 @@ input[name='q']::placeholder {
     color: #999;
 }
 
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+.search-bar input[type="search"] {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+}
+
+.search-button {
+    background-color: #ff6600;
+    color: #ffffff;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #e65c00;
+    color: #ffffff;
+}
+
+.search-button i {
+    font-size: 1.2rem;
+}
+/* My Account Styles */
+.my-account {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #080808;
+}
+
+.my-account .account-icon {
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+    color: #ff6600;
+}
+
+.my-account .account-text {
+    color: #080808;
+    text-decoration: none;
+}
+
+.my-account .account-text:hover {
+    color: #e65c00;
+}
+
+/* Bag Icon Styles */
+.bag-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bag-icon {
+    font-size: 1.5rem;
+    color: #080808;
+}
+
+.bag-icon:hover {
+    color: #e65c00;
+}
+
+.bag-notification-wrapper {
+    height: 18px;
+    width: 18px;
+    background: #ff6600;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 600;
+}
+
 /* Banner Styles */
 .banner-content {
     text-align: center;
@@ -244,10 +348,26 @@ input[name='q']::placeholder {
     padding: 0.75rem 1.5rem;
 }
 
+@media (max-width: 991px) {
+    .banner-content h1 {
+        font-size: 2rem;
+    }
+
+    .banner-content p {
+        font-size: 1rem;
+    }
+}
+
 /* Section Styles */
 #billboard {
     background-color: #e9f2ff;
     padding: 4rem 0;
+}
+
+@media (max-width: 991px) {
+    #billboard {
+        padding: 2rem 0;
+    }
 }
 
 #about-us {
@@ -285,6 +405,16 @@ input[name='q']::placeholder {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
+@media (max-width: 991px) {
+    #about-us .section-title {
+        font-size: 2rem;
+    }
+
+    #about-us p {
+        font-size: 1rem;
+    }
+}
+
 #company-services {
     background-color: #e9f2ff;
     padding: 4rem 0;
@@ -294,6 +424,16 @@ input[name='q']::placeholder {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     text-align: center;
+}
+
+@media (max-width: 991px) {
+    #company-services {
+        padding: 2rem 0;
+    }
+
+    #company-services .section-title {
+        font-size: 1.5rem;
+    }
 }
 
 #company-services .icon-box {
@@ -335,9 +475,17 @@ input[name='q']::placeholder {
 }
 
 .bag-notification-wrapper {
-    height: 100px;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: 18px;
+    width: 18px;
+    background: #ff6600;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+    font-weight: 600;
 }
 
 /* File Input Styles */
@@ -696,11 +844,71 @@ input[name='q']::placeholder {
     margin-bottom: 1.5rem;
 }
 
-/* Flexbox Centering */
-.min-vh-100 {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+.signin-button {
+    background-color: #ff6600;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.signin-button:hover {
+    background: #e65c00;
+    color: white;
+}
+
+/* Additional Utility Styles */
+.text-gray-700 {
+    color: #333333;
+}
+
+.text-gray-500 {
+    color: #999999;
+}
+
+.font-bold {
+    font-weight: bold;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem;
+}
+
+.mt-4 {
+    margin-top: 1rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.pt-3 {
+    padding-top: 1rem;
+}
+
+.pt-4 {
+    padding-top: 1.5rem;
+}
+
+.pb-3 {
+    padding-bottom: 1rem;
+}
+
+.pb-4 {
+    padding-bottom: 1.5rem;
 }
