@@ -240,28 +240,30 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect(reverse('products'))
 
+
 def wishlist(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'You need to be logged in to view your wishlist.')
+        return redirect('account_login')
 
-    products_in_wishlist = 0
-    if request.user.is_authenticated:
-        products_in_wishlist = request.user.favorite.count()
-        
-    if request.user.is_authenticated:
-        return render(request, 'products/wishlist.html')
-    else:
-        messages.error(request, 'You need to be logged in to add products to your wishlist.')
+    products_in_wishlist = request.user.favorite.all()
 
+    context = {
+        'wishlist': products_in_wishlist,
+    }
+    return render(request, 'products/wishlist.html', context)
 
+@login_required
 def add_to_wishlist(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    if request.user.is_authenticated:
-        request.user.favorite.add(product)
+    request.user.favorite.add(product)
+    messages.success(request, 'Product added to wishlist!')
     return redirect(reverse('product_detail', args=[product.id]))
 
-
+@login_required
 def remove_from_wishlist(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    if request.user.is_authenticated:
-        if request.user.favorite.filter(id=product_id).exists():
-            request.user.favorite.remove(product)
+    if request.user.favorite.filter(id=product_id).exists():
+        request.user.favorite.remove(product)
+        messages.success(request, 'Product removed from wishlist!')
     return redirect(reverse('product_detail', args=[product.id]))
