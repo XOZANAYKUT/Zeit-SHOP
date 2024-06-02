@@ -1,0 +1,4 @@
+User-agent= *
+Disallow= /accounts/
+Disallow= /bag/
+Sitemap: https://zeitshoop1-c40db427d283.herokuapp.com/sitemap.xml
