@@ -43,71 +43,7 @@ body {
     }
 }
 
-/* Footer Styles */
-.footer {
-    padding: 60px 0;
-    background-color: #004aad;
-    color: #ffffff;
-}
 
-.footer h5 {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-.footer ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.footer ul li {
-    margin-bottom: 10px;
-}
-
-.footer ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer ul li a:hover {
-    color: #66ccff;
-}
-
-.footer address {
-    font-style: normal;
-    color: #d1d1d1;
-    margin-top: 20px;
-}
-
-.footer address strong {
-    color: #ffffff;
-}
-
-.footer address a {
-    color: #feffff;
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-.footer address a:hover {
-    color: #66ccff;
-}
-
-.footer .row.mt-4 {
-    border-top: 1px solid #495057;
-    padding-top: 20px;
-}
-
-.footer .col.text-center p {
-    margin-bottom: 0;
-    font-size: 14px;
-    color: #adb5bd;
-}
-
-.footer ul li a i {
-    margin-right: 8px;
-}
 
 /* Button Styles */
 .btn-primary,
@@ -703,3 +639,8 @@ input[name='q']::placeholder {
     align-items: center;
     width: 100%;
 }  
+
+#mc_embed_signup {
+    background: #04732b;
+    padding: 0;
+}
