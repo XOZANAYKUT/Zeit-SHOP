@@ -113,7 +113,29 @@ ____
 ____
 ![add](docs/images/add4.png)
 ____
+### Rating
+Rating system for the purchased product is shown with 5 stars. also the points given give information about the product to other users. the user can delete the score given and can score again.
+____
 
+![rat](docs/images/rat.png)
+____
+![rat](docs/images/rat2.png)
+____
+![rat](docs/images/rat3.png)
+____
+
+### Comment
+There is a comment system for the purchased product. also the comments made inform other users about the products. the user can delete, edit and make more than one comment. After each transaction, a message is given that the transaction has taken place.
+____
+![com](docs/images/com.png)
+____
+![com](docs/images/com2.png) 
+____
+![com](docs/images/com3.png) 
+____
+![com](docs/images/com4.png) 
+____
+![com](docs/images/com5.png) 
 ## Features Left to Implement
 - To integrate a calendar for booking calls
 - An application form for the internship programme

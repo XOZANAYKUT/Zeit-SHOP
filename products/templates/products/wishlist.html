@@ -4,44 +4,44 @@
 {% block wishlist %}
     <h1 class="fw-light">Wishlist</h1>
     {% if request.user.is_authenticated %}
-<span class="small"><a href="{% url 'products' %}">Back to Products</a> | </span>
-{% endif %}
-    {% for product in request.user.favorite.all %}
+        <span class="small"><a href="{% url 'products' %}">Back to Products</a> | </span>
+    {% endif %}
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
-            <div class="row row-cols-3 row-cols-md-3 g-3">
-                <div class="col">
-                    <div class="card shadow-sm">
-                        {% if product.image %}
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        {% else %}
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
-                        {% endif %}
-                        <div class="card-body">
-                            <h3 class="card-text">
-                                <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
-                            </h3>
-                            {% if product.category %}
-                            <p class="small mt-1 mb-0">
-                                <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
-                                </a>
-                            </p>
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                {% for product in request.user.favorite.all %}
+                    <div class="col">
+                        <div class="card shadow-sm">
+                            {% if product.image %}
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            {% else %}
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                             {% endif %}
-                            <div class="d-flex justify-content-between align-items-center">
-                                {% if request.user.is_superuser %}
-                                <div class="btn-group ml-3">
-                                    <a href="{% url 'edit_product' product_id=product.id %}">Edit</a>
-                                    <a class="text-danger" href="{% url 'delete_product' product_id=product.id %}">Delete</a>
-                                </div>
+                            <div class="card-body">
+                                <h3 class="card-text">
+                                    <a href="{% url 'product_detail' product.id %}">{{ product.name }}</a>
+                                </h3>
+                                {% if product.category %}
+                                    <p class="small mt-1 mb-0">
+                                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                        </a>
+                                    </p>
                                 {% endif %}
-                                <small class="text-body-secondary">${{ product.price }}</small>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    {% if request.user.is_superuser %}
+                                        <div class="btn-group ml-3">
+                                            <a href="{% url 'edit_product' product_id=product.id %}">Edit</a>
+                                            <a class="text-danger" href="{% url 'delete_product' product_id=product.id %}">Delete</a>
+                                        </div>
+                                    {% endif %}
+                                    <small class="text-body-secondary">${{ product.price }}</small>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
-    </div> 
-    {% endfor %}
+    </div>
 {% endblock %}
