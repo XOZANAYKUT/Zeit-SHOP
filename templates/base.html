@@ -12,8 +12,7 @@
         content="Sofa Project, Leather Sofas, Fabric Sofas, Sleeper Sofas, Chairs, Tables, Accessories, New Arrivals, Deals, Clearance.">
     <meta name="keywords"
         content="Sofa Project, leather sofas, fabric sofas, sleeper sofas, chairs, tables, accessories, new arrivals, deals, clearance, modern sofas, comfortable seating, home furniture, living room decor, sofa discounts">
-    <meta name="google-site-verification" content="l8TE-EKxB2u-R2hBCWm35loqpe8ySsyqSXF3CtEIsaQ" />
-
+    <meta name="google-site-verification" content="l8TE-EKxB2u-R2hBCWm35loqpe8ySsyqSXF3CtEIsaQ">
     {% endblock %}
 
     {% block extra_meta %}
@@ -24,10 +23,7 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link type="image/png" sizes="16x16" rel="icon" href="{% static 'favicon/icons8-chef-16.png' %}">
-    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet"type="text/css">
-
-    <style type="text/css"></style>
-
+    <link href="//cdn-images.mailchimp.com/embedcode/classic-061523.css" rel="stylesheet" type="text/css">
     {% endblock %}
 
     {% block extra_css %}
@@ -46,7 +42,6 @@
     <!-- Stripe -->
     <script src="https://js.stripe.com/v3/"></script>
     <!-- favicon -->
-
     {% endblock %}
 
     {% block extra_js %}
@@ -166,27 +161,26 @@
             setInterval(showNextMessage, 3000); // Change message every 3 seconds
         });
     </script>
-    <script type="text/javascript"
-    src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-<script type="text/javascript">
-    (function ($) {
-        window.fnames = new Array();
-        window.ftypes = new Array();
-        fnames[0] = 'EMAIL';
-        ftypes[0] = 'email';
-        fnames[1] = 'FNAME';
-        ftypes[1] = 'text';
-        fnames[2] = 'LNAME';
-        ftypes[2] = 'text';
-        fnames[3] = 'ADDRESS';
-        ftypes[3] = 'address';
-        fnames[4] = 'PHONE';
-        ftypes[4] = 'phone';
-        fnames[5] = 'BIRTHDAY';
-        ftypes[5] = 'birthday';
-    }(jQuery));
-    var $mcj = jQuery.noConflict(true);
-</script>
+    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script type="text/javascript">
+        (function ($) {
+            window.fnames = new Array();
+            window.ftypes = new Array();
+            fnames[0] = 'EMAIL';
+            ftypes[0] = 'email';
+            fnames[1] = 'FNAME';
+            ftypes[1] = 'text';
+            fnames[2] = 'LNAME';
+            ftypes[2] = 'text';
+            fnames[3] = 'ADDRESS';
+            ftypes[3] = 'address';
+            fnames[4] = 'PHONE';
+            ftypes[4] = 'phone';
+            fnames[5] = 'BIRTHDAY';
+            ftypes[5] = 'birthday';
+        }(jQuery));
+        var $mcj = jQuery.noConflict(true);
+    </script>
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
@@ -206,15 +200,12 @@
     {% endif %}
 
     {% block page_header %}
-
     {% endblock %}
 
     {% block content %}
     {% endblock %}
 
     {% block wishlist %}
-
-
     {% endblock %}
 
     {% block postloadjs %}
@@ -230,40 +221,55 @@
                     <h5 class="text-uppercase font-weight-bold">Categories</h5>
                     <ul class="list-unstyled">
                         <li><a href="{% url 'products' %}" class="text-white">All Products</a></li>
-                        <li><a href="{% url 'products' %}?category=leather_sofas,fabric_sofas,sleeper_sofas" class="text-white">All Sofas</a></li>
-                        <li><a href="{% url 'products' %}?category=chairs,tables,accessories" class="text-white">All Homeware</a></li>
-                        <li><a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="text-white">All Specials</a></li>
+                        <li><a href="{% url 'products' %}?category=leather_sofas,fabric_sofas,sleeper_sofas"
+                                class="text-white">All Sofas</a></li>
+                        <li><a href="{% url 'products' %}?category=chairs,tables,accessories" class="text-white">All
+                                Homeware</a></li>
+                        <li><a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="text-white">All
+                                Specials</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="text-uppercase font-weight-bold">Connect With Us</h5>
                     <ul class="list-unstyled">
-                        <li><a href="https://www.facebook.com/profile.php?id=61560026145460" class="text-white"><i class="fab fa-facebook-f mr-2"></i>Facebook</a></li>
-                        <li><a href="https://twitter.com" class="text-white"><i class="fab fa-twitter mr-2"></i>Twitter</a></li>
-                        <li><a href="https://instagram.com" class="text-white"><i class="fab fa-instagram mr-2"></i>Instagram</a></li>
-                        <li><a href="https://linkedin.com" class="text-white"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
-                        <li><a href="mailto:info@example.com" class="text-white"><i class="far fa-envelope mr-2"></i>Email Us</a></li>
+                        <li><a href="https://www.facebook.com/profile.php?id=61560026145460" class="text-white"><i
+                                    class="fab fa-facebook-f mr-2"></i>Facebook</a></li>
+                        <li><a href="https://twitter.com" class="text-white"><i
+                                    class="fab fa-twitter mr-2"></i>Twitter</a></li>
+                        <li><a href="https://instagram.com" class="text-white"><i
+                                    class="fab fa-instagram mr-2"></i>Instagram</a></li>
+                        <li><a href="https://linkedin.com" class="text-white"><i
+                                    class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
+                        <li><a href="mailto:info@example.com" class="text-white"><i
+                                    class="far fa-envelope mr-2"></i>Email Us</a></li>
                     </ul>
                 </div>
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="text-uppercase font-weight-bold">Subscribe!</h5>
                     <p>Get exclusive offers and discount codes by subscribing to our monthly newsletter</p>
                     <div id="mc_embed_signup">
-                        <form action="https://herokuapp.us13.list-manage.com/subscribe/post?u=8a7733b4d0823d72800d77db9&amp;id=383dd5cc20&amp;f_id=00c9c0e2f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+                        <form
+                            action="https://herokuapp.us13.list-manage.com/subscribe/post?u=8a7733b4d0823d72800d77db9&amp;id=383dd5cc20&amp;f_id=00c9c0e2f0"
+                            method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                            class="validate" target="_blank">
                             <div id="mc_embed_signup_scroll">
                                 <div class="mc-field-group">
-                                    <label for="mce-EMAIL" class="d-block">Email Address <span class="asterisk">*</span></label>
-                                    <input type="email" name="EMAIL" class="required email form-control mb-2" id="mce-EMAIL" required>
+                                    <label for="mce-EMAIL" class="d-block">Email Address <span
+                                            class="asterisk">*</span></label>
+                                    <input type="email" name="EMAIL" class="required email form-control mb-2"
+                                        id="mce-EMAIL" required>
                                 </div>
                                 <div id="mce-responses" class="clear">
                                     <div class="response" id="mce-error-response" style="display:none"></div>
                                     <div class="response" id="mce-success-response" style="display:none"></div>
                                 </div>
                                 <div style="position: absolute; left: -5000px;" aria-hidden="true">
-                                    <input type="text" name="b_8a7733b4d0823d72800d77db9_383dd5cc20" tabindex="-1" value="">
+                                    <input type="text" name="b_8a7733b4d0823d72800d77db9_383dd5cc20" tabindex="-1"
+                                        value="">
                                 </div>
                                 <div class="clear">
-                                    <button type="submit" name="subscribe" id="mc-embedded-subscribe" class="btn btn-primary">Subscribe</button>
+                                    <button type="submit" name="subscribe" id="mc-embedded-subscribe"
+                                        class="btn btn-primary">Subscribe</button>
                                 </div>
                             </div>
                         </form>

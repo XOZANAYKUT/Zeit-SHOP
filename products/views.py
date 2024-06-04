@@ -8,6 +8,7 @@ from .forms import ProductForm, RatingForm
 from .forms import CommentForm
 # Create your views here.
 
+
 def all_products(request):
     """ A view to show all products, including sorting and search queries """
 
@@ -42,7 +43,6 @@ def all_products(request):
             if not query:
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
-            
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
 
@@ -56,6 +56,7 @@ def all_products(request):
     }
 
     return render(request, 'products/products.html', context)
+
 
 def edit_comment(request, product_id, comment_id):
     """
@@ -72,7 +73,7 @@ def edit_comment(request, product_id, comment_id):
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST, instance=comment)
-        
+
         if comment_form.is_valid() and comment.author == request.user:
             comment = comment_form.save(commit=False)
             comment.product = product
@@ -82,10 +83,10 @@ def edit_comment(request, product_id, comment_id):
             return redirect(reverse('product_detail', args=[product.id]))
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
-    
+
     else:
         comment_form = CommentForm(instance=comment)
-    
+
     context = {
         'product': product,
         'comment': comment,
@@ -132,7 +133,6 @@ def product_detail(request, product_id):
     if request.user.is_authenticated:
         user_rating = Rating.objects.filter(product=product, user=request.user).first()
 
-    
     if request.method == 'POST' and 'rate' in request.POST:
         form = RatingForm(request.POST)
         if user_rating:
@@ -157,8 +157,7 @@ def product_detail(request, product_id):
             comment.author = request.user
             comment.product = product
             comment.save()
-            messages.add_message(request, messages.SUCCESS,
-            'Comment submitted')
+            messages.add_message(request, messages.SUCCESS, 'Comment submitted')
             return redirect('product_detail', product_id=product.id)
     else:
         comment_form = CommentForm()
@@ -177,6 +176,7 @@ def product_detail(request, product_id):
 
     return render(request, 'products/product_detail.html', context)
 
+
 @login_required
 def delete_rating(request, product_id):
     user = request.user
@@ -184,6 +184,7 @@ def delete_rating(request, product_id):
     rating.delete()
     messages.add_message(request, messages.SUCCESS, 'Rating deleted!')
     return redirect(reverse('product_detail', args=[product_id]))
+
 
 @login_required
 def add_product(request):
@@ -208,6 +209,7 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
 
 @login_required
 def edit_product(request, product_id):
@@ -236,13 +238,13 @@ def edit_product(request, product_id):
 
     return render(request, template, context)
 
+
 @login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-        
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, 'Product deleted!')
@@ -261,12 +263,14 @@ def wishlist(request):
     }
     return render(request, 'products/wishlist.html', context)
 
+
 @login_required
 def add_to_wishlist(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
     request.user.favorite.add(product)
     messages.success(request, 'Product added to wishlist!')
     return redirect(reverse('product_detail', args=[product.id]))
+
 
 @login_required
 def remove_from_wishlist(request, product_id):
