@@ -115,7 +115,7 @@
         <p>You have already rated this product.</p>
         <form method="POST" action="{% url 'delete_rating' product.id %}">
             {% csrf_token %}
-            <button class="btn btn-delete" type="submit">Delete Rating</button>
+            <button class="btn btn-delete bg-dark text-white" type="submit">Delete Rating</button>
         </form>
         {% else %}
         <form method="POST" action="{% url 'product_detail' product.id %}">
