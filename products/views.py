@@ -178,6 +178,14 @@ def product_detail(request, product_id):
     return render(request, 'products/product_detail.html', context)
 
 @login_required
+def delete_rating(request, product_id):
+    user = request.user
+    rating = get_object_or_404(Rating, user=user, product_id=product_id)
+    rating.delete()
+    messages.add_message(request, messages.SUCCESS, 'Rating deleted!')
+    return redirect(reverse('product_detail', args=[product_id]))
+
+@login_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:

@@ -113,7 +113,10 @@
         {% if user.is_authenticated %}
         {% if user_rating %}
         <p>You have already rated this product.</p>
-        <p></p>
+        <form method="POST" action="{% url 'delete_rating' product.id %}">
+            {% csrf_token %}
+            <button class="btn btn-delete" type="submit">Delete Rating</button>
+        </form>
         {% else %}
         <form method="POST" action="{% url 'product_detail' product.id %}">
             {% csrf_token %}
@@ -149,7 +152,7 @@
                             {% if request.user.is_authenticated and comment.author == request.user %}
                             <div>
                                 <button class="btn btn-link btn-sm btn-edit" data-comment_id="{{ comment.id }}" data-product_id="{{ product.id }}">Edit</button>
-                                <button class="btn btn-link btn-sm text-danger btn-delete" data-comment_id="{{ comment.id }}" data-product_id="{{ product.id }}">Delete</button>
+                                <button class="btn btn-link btn-sm text-danger button-delete" data-comment_id="{{ comment.id }}" data-product_id="{{ product.id }}">Delete</button>
                             </div>
                             {% endif %}
                         </div>
@@ -234,7 +237,7 @@
 
     document.addEventListener("DOMContentLoaded", function () {
         const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
-        const deleteButtons = document.getElementsByClassName("btn-delete");
+        const deleteButtons = document.getElementsByClassName("button-delete");
         const deleteConfirm = document.getElementById("deleteConfirm");
 
         for (let button of deleteButtons) {

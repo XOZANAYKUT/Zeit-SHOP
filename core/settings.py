@@ -9,8 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
-DEBUG = 'DEVELOPMENT' in os.environ
-
+DEBUG =os.environ.get("SECRET_KEY")
 ALLOWED_HOSTS = [
     'zeitshoop1-c40db427d283.herokuapp.com',
     '.gitpod.io',

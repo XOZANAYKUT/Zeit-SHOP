@@ -9,7 +9,7 @@
     {% for product in request.user.favorite.all %}
     <div class="album py-5 bg-body-tertiary">
         <div class="container">
-            <div class="row row-cols-1 row-cols-md-3 g-3">
+            <div class="row row-cols-3 row-cols-md-3 g-3">
                 <div class="col">
                     <div class="card shadow-sm">
                         {% if product.image %}
