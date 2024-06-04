@@ -67,7 +67,7 @@
                         <input class="form-control search-input" type="text" name="q" placeholder="Search our site"
                             aria-label="Search">
                         <div class="input-group-append">
-                            <button class="btn search-button" type="submit">
+                            <button class="btn search-button" type="submit" aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -130,7 +130,6 @@
                     aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                {% include 'includes/mobile-top-header.html' %}
                 {% include 'includes/main-nav.html' %}
             </nav>
         </div>
