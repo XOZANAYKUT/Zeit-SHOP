@@ -160,8 +160,8 @@
             setInterval(showNextMessage, 3000); // Change message every 3 seconds
         });
     </script>
-    <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
-    <script type="text/javascript">
+    <script src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+    <script>
         (function ($) {
             window.fnames = new Array();
             window.ftypes = new Array();
@@ -208,7 +208,7 @@
     {% endblock %}
 
     {% block postloadjs %}
-    <script type="text/javascript">
+    <script>
         $('.toast').toast('show');
     </script>
     {% endblock %}
@@ -231,15 +231,15 @@
                 <div class="col-md-4 mb-4 mb-md-0">
                     <h5 class="text-uppercase font-weight-bold">Connect With Us</h5>
                     <ul class="list-unstyled">
-                        <li><a href="https://www.facebook.com/profile.php?id=61560026145460" class="text-white"><i
+                        <li><a href="https://www.facebook.com/profile.php?id=61560026145460" rel="noopener" class="text-white"><i
                                     class="fab fa-facebook-f mr-2"></i>Facebook</a></li>
-                        <li><a href="https://twitter.com" class="text-white"><i
-                                    class="fab fa-twitter mr-2"></i>Twitter</a></li>
-                        <li><a href="https://instagram.com" class="text-white"><i
+                        <li><a href="https://twitter.com" rel="noopener" class="text-white"><i
+                                    class="fab fa-twitter mr-2" ></i>Twitter</a></li>
+                        <li><a href="https://instagram.com" rel="noopener" class="text-white"><i
                                     class="fab fa-instagram mr-2"></i>Instagram</a></li>
-                        <li><a href="https://linkedin.com" class="text-white"><i
+                        <li><a href="https://linkedin.com" rel="noopener" class="text-white"><i
                                     class="fab fa-linkedin mr-2"></i>LinkedIn</a></li>
-                        <li><a href="mailto:info@example.com" class="text-white"><i
+                        <li><a href="mailto:info@example.com" rel="noopener" class="text-white"><i
                                     class="far fa-envelope mr-2"></i>Email Us</a></li>
                     </ul>
                 </div>

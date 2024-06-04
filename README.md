@@ -137,84 +137,88 @@ ____
 ____
 ![com](docs/images/com5.png) 
 ## Features Left to Implement
-- To integrate a calendar for booking calls
-- An application form for the internship programme
-- Applying online for the course
-- 
+-
 
 ____
-
-## Performance For Mobile
-
-### Home page performance
-
-![home](docs/images/mobil1.png)
-____
-
-### Courses  page performance
-![Courses](docs/images/courses.png)
-____
-### About  page performance
-
-![About](docs/images/about.png)
-____
-
-### Search page performance
-
-![Search](docs/images/search.png)
-____
-![Search](docs/images/src.png)
-____
-
-### Register page performance
-
-![Register](docs/images/rgr.png)
-____
-### Login page performance
-
-![Login](docs/images/lgn.png)
-____
-### Logout page performance
-
-![Logout](docs/images/sgn.png)
-____
-
 
 ## Performance For Desktop
 
 ### Home page performance
 
-![home](docs/images/desk.png)
-____
-### Courses  page performance
-![Aboutus](docs/images/desk3.png)
+![home](docs/images/desk1.png)
 ____
 
-### About  page performance
-![Courses](docs/images/desk2.png)
+### Products  page performance
+![products](docs/images/desk2.png)
+____
+![products](docs/images/desk3.png)
 
 ____
+### wishlist  page performance
 
-### Search page performance
-
-![Search](docs/images/desk5.png)
+![wishlist](docs/images/wish.png)
 ____
-![Search](docs/images/desk4.png)
+### Product Management 
+
+![management](docs/images/mang.png)
+____
+### My Profile
+![profile](docs/images/pro.png)
+____
+### logout
+![logout](docs/images/log.png)
+____
+### Sing up
+![singup](docs/images/sin.png)
+____
+### Login
+![login](docs/images/login2.png)
+____
+### bag
+![bag](docs/images/bag5.png)
+____
+### Checkout
+![check](docs/images/check.png)
+
+## Performance For Mobile
+
+### Home page performance
+
+![home](docs/images/mob.png)
 ____
 
-### Register page performance
-
-![Register](docs/images/desk6.png)
+### Products  page performance
+![products](docs/images/mob1.png)
 ____
+![products](docs/images/mob3.png)
 
-### Login page performance
-
-![Login](docs/images/desk7.png)
 ____
-### Logout page performance
+### wishlist  page performance
 
-![Logout](docs/images/desk8.png)
+![wishlist](docs/images/mob4.png)
 ____
+### Product Management 
+
+![management](docs/images/mob5.png)
+____
+### My Profile
+![profile](docs/images/mob6.png)
+____
+### logout
+![logout](docs/images/log6.png)
+____
+### Sing up
+![singup](docs/images/mob7.png)
+____
+### Login
+![login](docs/images/mob8.png)
+____
+### bag
+![bag](docs/images/bag9.png)
+____
+### Checkout
+![check](docs/images/check.png)
+
 
 ## Data Model
 
@@ -259,9 +263,9 @@ ____
 ____
 ## Validator Testing
 - HTML: No errors were found when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fprojectfour-1535055a6d4c.herokuapp.com%2F)
- - CSS: No errors found when passing through the official [(Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fprojectfour-1535055a6d4c.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+ - CSS: No errors found when passing through the official [(Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fzeitshoop1-c40db427d283.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
  
- ![testing](docs/images/testing.png) 
+ ![testing](docs/images/testing4.png) 
  ## Javascript
 - No errors found when passing through the official [jshint ](https://jshint.com/)
 ____
@@ -274,12 +278,11 @@ ____
 ____
 
 ## Manual Testing
-![testing](docs/images/testing2.png) 
+![testing](docs/images/testing.png) 
 ![testing](docs/images/tst.png) 
-![testing](docs/images/testin2.png) 
+![testing](docs/images/testing2.png) 
 ![testing](docs/images/testing3.png) 
-![testing](docs/images/testin4.png) 
-![testing](docs/images/testing5.png) 
+
 ____
 
 ## Deployment - Heroku
