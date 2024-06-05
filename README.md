@@ -12,8 +12,6 @@ A visitor to Sofa is typically an adult who values comfort and style in their li
 
 ## Follow link for [User Stories](https://github.com/XOZANAYKUT/zeit_shop/issues)
 
-## Existing Features
-____
  
 ### Navigation Bar
 - The fully responsive navigation bar on all pages contains links to the home page, wishlist, search button, registration, bag, login pages and is present on every page to allow easy navigation.
