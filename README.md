@@ -158,26 +158,32 @@ ____
 
 ![wishlist](docs/images/wish.png)
 ____
-### Product Management 
+### Product Management  page performance
+
 
 ![management](docs/images/mang.png)
 ____
-### My Profile
+### My Profile  page performance
+
 ![profile](docs/images/pro.png)
 ____
-### logout
+### logout  page performance
+
 ![logout](docs/images/log.png)
 ____
 ### Sing up
 ![singup](docs/images/sin.png)
 ____
-### Login
+### Login  page performance
+
 ![login](docs/images/login2.png)
 ____
-### bag
+### bag  page performance
+
 ![bag](docs/images/bag5.png)
 ____
-### Checkout
+### Checkout  page performance
+
 ![check](docs/images/check.png)
 
 ## Performance For Mobile
@@ -197,87 +203,189 @@ ____
 
 ![wishlist](docs/images/mob4.png)
 ____
-### Product Management 
+### Product Management  page performance
+
 
 ![management](docs/images/mob5.png)
 ____
-### My Profile
+### My Profile  page performance
+
 ![profile](docs/images/mob6.png)
 ____
-### logout
+### logout  page performance
+
 ![logout](docs/images/log6.png)
 ____
-### Sing up
+### Sing up  page performance
+
 ![singup](docs/images/mob7.png)
 ____
-### Login
+### Login  page performance
+
 ![login](docs/images/mob8.png)
 ____
-### bag
+### bag  page performance
+
 ![bag](docs/images/bag9.png)
 ____
-### Checkout
+### Checkout  page performance
+
 ![check](docs/images/check.png)
 
 
 ## Data Model
 
-- The Django model definitions provided down create models for a course and comments. The "Course" model represents a course created by a user, while the "Comment" model represents comments made on courses.
+- The Django model definitions given below create models for Order,OrderLineItem, product, rating, UserProfile and comment. 
 
-### The Course model has the following fields:
+### Order Model
+The Order model has the following fields:
 
-- title: The title of the course.
-- slug: A unique URL tag for the course.
-- author: A foreign key representing the author of the course. When a user is deleted, their associated courses are  automatically deleted.
-- featured_image: The featured image for the course.
-- content: The content of the course.
-- date: The date of the course.
-- duration: The duration of the course, which can be short-term or long-term.
-- created_on: The date when the course was created.
-- status: The status of the course, which can be draft or published.
-- excerpt: A summary of the course.
-- updated_on: The date when the course information was last updated.
+- order_number: A unique identifier for the order, generated using UUID.
+- user_profile: A foreign key representing the profile of the user who placed the order. If the user profile is - - - deleted, the reference is set to null.
+- full_name: The full name of the person who placed the order.
+- email: The email address of the person who placed the order.
+- phone_number: The phone number of the person who placed the order.
+- country: The country of the delivery address, represented using the CountryField.
+- postcode: The postal code of the delivery address.
+- town_or_city: The town or city of the delivery address.
+- street_address1: The primary street address.
+- street_address2: The secondary street address (optional).
+- county: The county or region of the delivery address (optional).
+- date: The date and time when the order was placed, automatically set when the order is created.
+- delivery_cost: The cost of delivering the order.
+- order_total: The total cost of the order before adding the delivery cost.
+- grand_total: The total cost of the order including delivery.
+- original_bag: A text field storing the original shopping bag content.
+- stripe_pid: A field for storing the Stripe payment ID.
+### Methods:
+
+- _generate_order_number(): Generates a random, unique order number using UUID.
+- update_total(): Updates the grand total each time a line item is added, accounting for delivery costs.
+- save(*args, **kwargs): Overrides the original save method to set the order number if it hasn't been set already.
+- __str__(): Returns the order number as the string representation of the order.
+
+### OrderLineItem Model
+The OrderLineItem model has the following fields:
+
+- order: A foreign key representing the order to which the line item belongs. When the order is deleted, associated line items are also deleted.
+- product: A foreign key representing the product included in the line item. When the product is deleted, the associated line item is also deleted.
+- quantity: The quantity of the product ordered.
+- lineitem_total: The total cost of the line item, calculated as product price times quantity.
+
+### Methods:
+
+- save(*args, **kwargs): Overrides the original save method to set the line item total and update the order total.
+- __str__(): Returns a string indicating the SKU of the product and the order number to which the line item belongs.-
 ____
-## The Comment model has the following fields:
+## Category Model
+The Category model has the following fields:
 
-- course: A foreign key representing the course to which the comment is attached. When a course is deleted, associated comments are automatically deleted.
-- author: A foreign key representing the author of the comment. When a user is deleted, their associated comments are automatically deleted.
+- name: The name of the category.
+- friendly_name: A user-friendly name for the category, which can be null or blank.
+### Methods:
+
+- __str__(): Returns the name of the category.
+- get_friendly_name(): Returns the friendly name of the category.
+### Meta Class:
+
+- verbose_name_plural: Specifies the plural name for the model in the admin interface.
+
+### Product Model
+The Product model has the following fields:
+
+- category: A foreign key linking to the Category model. If the category is deleted, the reference is set to null.
+- sku: The stock-keeping unit identifier for the product, which can be null or blank.
+- name: The name of the product.
+- description: A text field for the product description.
+- price: The price of the product.
+- image_url: A URL for the product's image, which can be null or blank.
+- image: An image file for the product, which can be null or blank.
+- wishlist: A many-to-many relationship with the User model, representing users who have added the product to their wishlist.
+### Methods:
+
+- __str__(): Returns the name of the product.
+- average_rating(): Calculates and returns the average rating of the product based on the associated Rating model instances. Returns 0 if no ratings exist.
+### Rating Model
+The Rating model has the following fields:
+
+- product: A foreign key linking to the Product model. When the product is deleted, associated ratings are also deleted.
+- user: A foreign key linking to the User model. When the user is deleted, associated ratings are also deleted.
+- score: An integer field representing the rating score, chosen from predefined choices ranging from 1 to 5 stars.
+# Methods:
+
+- __str__(): Returns a string representation of the rating, including the score, product name, and username of the rater.
+### Score Choices:
+
+- ONE_STAR: 1 star
+- TWO_STARS: 2 stars
+- THREE_STARS: 3 stars
+- FOUR_STARS: 4 stars
+- FIVE_STARS: 5 stars
+- Comment Model
+The Comment model has the following fields:
+
+- product: A foreign key linking to the Product model, representing the product to which the comment is attached. When the product is deleted, associated comments are also deleted.
+- author: A foreign key linking to the User model, representing the author of the comment. When the user is deleted, associated comments are also deleted.
 - body: The content of the comment.
-- approved: The approval status of the comment. By default, comments are set as unapproved.
-- created_on: The date when the comment was create
-
-## The About  model has the following fields:
-
-- title: A CharField representing the title of the about section.
-- updated_on: A DateTimeField automatically updated with the current date and time whenever the model is saved.
-- profile_image: A CloudinaryField representing the image associated with the about section. It has a default value of 'placeholder'.
-- content: A TextField containing the detailed content or description.
-## model has the following fields:
-
-- name: A CharField representing the name of the person making the collaboration request.
-- email: An EmailField representing the email address of the person making the collaboration request.
-- message: A TextField containing the message or details of the collaboration request.
-- read: A BooleanField indicating whether the collaboration request has been read or not. It has a default value of False.
+- created_on: The date and time when the comment was created, automatically set when the comment is created.
+### Methods:
 ____
-![data](docs/images/data.png) 
+
+- __str__(): Returns a string representation of the comment, including the comment body and the author's username.
+### Meta Class:
+
+- ordering: Specifies the default ordering of comments by the creation date in ascending order.
+____
+## UserProfile Model
+____
+The UserProfile model has the following fields:
+
+- user: A one-to-one relationship with the User model, representing the user associated with the profile.
+- default_phone_number: The default phone number for the user, which can be null or blank.
+- default_street_address1: The first line of the default street address for the user, which can be null or blank.
+- default_street_address2: The second line of the default street address for the user, which can be null or blank.
+- default_town_or_city: The default town or city for the user, which can be null or blank.
+- default_county: The default county or state for the user, which can be null or blank.
+- default_postcode: The default postal code for the user, which can be null or blank.
+- default_country: The default country for the user, which can be null or blank.
+____
+### Methods:
+
+- __str__(): Returns the username of the user associated with the profile.
+____
+### Signal for Creating/Updating UserProfile
+____
+- A signal is defined to create or update a UserProfile instance whenever a User instance is created or updated.
+
+- create_or_update_user_profile(sender, instance, created, **kwargs): Creates a UserProfile instance when a new User - instance is created, and saves the UserProfile instance when an existing User instance is updated.
+### Receiver:
+____
+- post_save: This signal is connected to the create_or_update_user_profile function, ensuring the user profile is created or updated appropriately when a User instance is saved.
+____
+![data](docs/images/output.png) 
 ____
 ## Validator Testing
-- HTML: No errors were found when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fprojectfour-1535055a6d4c.herokuapp.com%2F)
+- HTML: No errors were found when passing through the official [W3C validator](https://validator.w3.org/nu/?showsource=yes&doc=https%3A%2F%2Fzeitshoop1-c40db427d283.herokuapp.com%2F#l338c35)
  - CSS: No errors found when passing through the official [(Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fzeitshoop1-c40db427d283.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
+ ____
  
  ![testing](docs/images/testing4.png) 
  ## Javascript
+ ____
 - No errors found when passing through the official [jshint ](https://jshint.com/)
 ____
 ## Python 
+____
 - No errors found when passing through the official [pep8ci ](https://pep8ci.herokuapp.com/)
 ____
 
 ## Device Testing
+____
 - The website was viewed on a variety of devices such as Desktop, Laptop, iPhone 8, iPhoneXR and iPad to ensure responsiveness on various screen sizes in both portrait and landscape mode. The website performed as intended. The responsive design was also checked using Chrome developer tools across multiple devices with structural integrity holding for the various sizes.
 ____
 
 ## Manual Testing
+____
 ![testing](docs/images/testing.png) 
 ![testing](docs/images/tst.png) 
 ![testing](docs/images/testing2.png) 
@@ -298,37 +406,34 @@ To deploy this page to Heroku from its GitHub repository, the following steps we
 - Next select your region.
 - Click on the Create App button.
 
-### Attach the Postgres database:
--  In the Resources tab, under add-ons, type in Postgres and select the Heroku Postgres option.
--  Copy the DATABASE_URL located in Config Vars in the Settings Tab.
-
-### Prepare the environment and settings.py file:
+### Attach the Postgres Database:
+- In the Resources tab on Heroku, under add-ons, type in Postgres and select the Heroku Postgres option.
+- Copy the DATABASE_URL located in Config Vars in the Settings Tab.
+### Prepare the Environment and settings.py File:
 - In your GitPod workspace, create an env.py file in the main directory.
 - Add the DATABASE_URL value and your chosen SECRET_KEY value to the env.py file.
-- Update the settings.py file to import the env.py file and add the SECRETKEY and DATABASE_URL file paths.
+- Update the settings.py file to import the env.py file and add the SECRET_KEY and DATABASE_URL file paths.
 - Comment out the default database configuration.
 - Save files and make migrations.
-- Add Cloudinary URL to env.py
-- Add the cloudinary libraries to the list of installed apps.
-- Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file 
- storage path.
+- Add Cloudinary URL to env.py.
+- Add the Cloudinary libraries to the list of installed apps.
+- Add the STATIC files settings - the URL, storage path, directory path, root path, media URL, and default file storage path.
 - Link the file to the templates directory in Heroku.
-- Change the templates directory to TEMPLATES_DIR
-- Add Heroku to the ALLOWED_HOSTS list the format ['app_name.heroku.com', 'localhost']
+- Change the templates directory to TEMPLATES_DIR.
+- Add Heroku to the ALLOWED_HOSTS list in the format ['app_name.heroku.com', 'localhost'].
 
 ### Create files / directories
 - Create requirements.txt file
-- Create three directories in the main directory; media, storage and templates.
+- create robots.txt
+- create runtime txt.
+- create sitemap.xml
+- Create four directories in the main directory; Static, docs, storage and templates.
 - Create a file named "Procfile" in the main directory and add the following: web: gunicorn project-name.wsgi
-
+- create a file named "env.py".
 ###
 Add the following Config Vars in Heroku:
 
-- SECRET_KEY value
-- CLOUDINARY_URL
-- PORT = 8000
-- DISABLE_COLLECTSTATIC = 1
-- DATABASE_URL 
+![testing](docs/images/con.png) 
 
 ### Deploy
 
@@ -343,8 +448,9 @@ Add the following Config Vars in Heroku:
     + [django-aullauth Setup](#django-aullauth-setup)
     + [cloudinary Setup](#cloudinary-Setup)
     + [ElephantSQL Setup](#ElephantSQL-Setup)
+    + [AWS Setup](#AWS-Setup)
 
-- The live link for Heroku can be found here - https://projectfour-1535055a6d4c.herokuapp.com/
+- The live link for Heroku can be found here - https://zeitshoop1-c40db427d283.herokuapp.com/
    
 ____
 ## Credits
@@ -356,16 +462,9 @@ ____
 [w3schools](https://www.w3schools.com/)
 
 ### Media
-- Images used on homepage and registration page are taken from [instagram](https://www.instagram.com/)
-
-- The image used for the About Us page was taken from[instagram](https://www.instagram.com/)
-  
-- The image used for the return page was taken from the website [instagram](https://www.instagram.com/)
-
+- Images used on homepage and registration page are taken from [google](https://www.beliani.de/)
 - Favicon was downloaded at [Icons8](https://icons8.com/icons/set/book)
-
 - Icons in the Login taken from
 [Font Awesome](https://fontawesome.com)
-
 - Icons in the footer taken from
 [Font Awesome](https://fontawesome.com)
