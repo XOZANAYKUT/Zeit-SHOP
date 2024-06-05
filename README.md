@@ -159,9 +159,12 @@ ____
 ![wishlist](docs/images/wish.png)
 ____
 ### Product Management  page performance
-
-
+____
 ![management](docs/images/mang.png)
+____
+### Edit comment page performance
+____
+![editi](docs/images/edit.png)
 ____
 ### My Profile  page performance
 
@@ -204,9 +207,12 @@ ____
 ![wishlist](docs/images/mob4.png)
 ____
 ### Product Management  page performance
-
-
+____
 ![management](docs/images/mob5.png)
+____
+### Edit comment page performance 
+____
+![edit](docs/images/mob11.png)
 ____
 ### My Profile  page performance
 
@@ -369,7 +375,7 @@ ____
  - CSS: No errors found when passing through the official [(Jigsaw](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fzeitshoop1-c40db427d283.herokuapp.com%2F&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en)
  ____
  
- ![testing](docs/images/testing4.png) 
+ ![testing](docs/images/testting4.png) 
  ## Javascript
  ____
 - No errors found when passing through the official [jshint ](https://jshint.com/)

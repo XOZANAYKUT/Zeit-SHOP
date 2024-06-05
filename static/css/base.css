@@ -11,6 +11,7 @@ html, body {
 body {
     min-height: calc(100vh - 164px);
 }
+
 .text-white {
     color: #ff6600 !important;
 }
@@ -43,43 +44,16 @@ body {
     }
 }
 
-
-
 /* Button Styles */
-.btn-primary,
-.shop-now-button,
-.btn-black,
-.btn-outline-primary,
-.btn-outline-black {
-    border-radius: 0.25rem;
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-    transition: background 0.3s;
-}
 
-.btn-primary,
-.shop-now-button,
-.btn-black {
-    background: #ff6600;
-    color: white;
-    border: none;
-}
 
-.btn-primary:hover,
-.shop-now-button:hover,
-.btn-black:hover {
-    background: #e65c00;
-    color: white !important;
-}
 
-.btn-outline-primary,
 .btn-outline-black {
     background: white;
-    color: #ff6600 !important;
+    color: #ff6600;
     border: 1px solid #ff6600;
 }
 
-.btn-outline-primary:hover,
 .btn-outline-black:hover {
     background: #e65c00;
     color: white !important;
@@ -96,66 +70,9 @@ body {
     color: #fff;
 }
 
-.btn-outline-black {
-    color: #000;
-    border: 1px solid #000;
-}
-
-.btn-outline-black:hover {
-    background-color: #000;
-    color: #fff;
-}
-
-.leave-comment .btn {
-    width: 100%;
-}
-
- 
-/* Utility Styles */
-.text-dark {
-    color: #333 !important;
-}
-
-.border-dark {
-    border: 1px solid #333 !important;
-}
-
 .container-fluid {
     position: relative;
     background-color: #f4f4f9;
-}
-
-.bg-dark {
-    background: #333 !important;
-}
-
-a.category-badge > span.badge:hover {
-    background: #444 !important;
-    color: #fff !important;
-}
-
-.btt-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background-color: #f8f9fa;
-    display: none;
-}
-
-.btt-button.show {
-    display: block;
-}
-
-.btt-link,
-.update-link,
-.remove-item {
-    cursor: pointer;
-}
-
-input[name='q']::placeholder {
-    color: #999;
 }
 
 
@@ -167,26 +84,9 @@ input[name='q']::placeholder {
     padding: 4rem 0;
 }
 
-.banner-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.banner-content p {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-}
-
-.banner-content .btn {
-    font-size: 1rem;
-    padding: 0.75rem 1.5rem;
-}
 
 /* Section Styles */
-#billboard {
-    background-color: #e9f2ff;
-    padding: 4rem 0;
-}
+
 
 #about-us {
     position: relative;
@@ -205,32 +105,22 @@ input[name='q']::placeholder {
     background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
 }
 
-#about-us .content {
-    position: relative;
-    z-index: 2;
-}
 
-#about-us .section-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-#about-us p {
-    font-size: 1.25rem;
-    color: #f4f4f9;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
 
 #company-services {
     background-color: #e9f2ff;
     padding: 4rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; /* Adjust the gap as needed */
 }
 
 #company-services .section-title {
     font-size: 2rem;
     margin-bottom: 1.5rem;
     text-align: center;
+    width: 100%;
 }
 
 #company-services .icon-box {
@@ -238,6 +128,13 @@ input[name='q']::placeholder {
     border-radius: 8px;
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Set a fixed width */
+    height: 300px; /* Set a fixed height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #company-services .icon-box h3 {
@@ -248,6 +145,7 @@ input[name='q']::placeholder {
 #company-services .icon-box p {
     font-size: 1rem;
     color: #666;
+    margin-top: 1rem;
 }
 
 /* Toast Styles */
@@ -361,7 +259,6 @@ input[name='q']::placeholder {
 
 .category-badge:hover {
     background-color: #cc5200;
-    color: white;
 }
 
 /* Navbar and Dropdown Styles */
@@ -640,7 +537,7 @@ input[name='q']::placeholder {
     justify-content: center;
     align-items: center;
     width: 100%;
-}  
+}
 
 #mc_embed_signup {
     background: #04732b;

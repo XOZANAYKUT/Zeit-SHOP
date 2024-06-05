@@ -58,43 +58,22 @@ def all_products(request):
     return render(request, 'products/products.html', context)
 
 
+@login_required
 def edit_comment(request, product_id, comment_id):
-    """
-    Display an individual comment for edit.
-    *Context*
+    comment = get_object_or_404(Comment, id=comment_id, product_id=product_id, author=request.user)
 
-    `product`
-        An instance of :model:products.Product.
-    `comment`
-        A single comment related to the product.
-    """
-    comment = get_object_or_404(Comment, pk=comment_id)
-    product = get_object_or_404(Product, pk=product_id)
-
-    if request.method == "POST":
-        comment_form = CommentForm(data=request.POST, instance=comment)
-
-        if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.product = product
-            comment.approved = False
-            comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-            return redirect(reverse('product_detail', args=[product.id]))
-        else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
-
+    if request.method == 'POST':
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            form.save()
+            return redirect('product_detail', product_id=product_id)
     else:
-        comment_form = CommentForm(instance=comment)
+        form = CommentForm(instance=comment)
 
-    context = {
-        'product': product,
-        'comment': comment,
-        'comment_form': comment_form,
-    }
-    return render(request, 'products/edit_comment.html', context)
+    return render(request, 'products/edit_comment.html', {'form': form, 'product_id': product_id, 'comment_id': comment_id})
 
 
+@login_required
 def delete_comment(request, product_id, comment_id):
     """
     Delete an individual comment.

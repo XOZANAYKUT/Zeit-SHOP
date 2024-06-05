@@ -128,7 +128,7 @@
                 <span class="star" data-value="5">&#9733;</span>
             </div>
             <input type="hidden" name="score" id="rating-score" value="0">
-            <button type="submit" name="rate">Submit Rating</button>
+            <button class="btn btn-black mt-2" type="submit" name="rate">Submit Rating</button>
         </form>
         {% endif %}
         {% else %}
@@ -147,12 +147,15 @@
                         <div class="d-flex justify-content-between">
                             <div>
                                 <strong>{{ comment.author }}</strong>
-                                <span class="text-muted">on {{ comment.created_on|date:"M d, Y H:i" }}</span>
+                                <span class="text-muted">on {{ comment.created_on }}</span>
                             </div>
                             {% if request.user.is_authenticated and comment.author == request.user %}
                             <div>
-                                <button class="btn btn-link btn-sm btn-edit" data-comment_id="{{ comment.id }}" data-product_id="{{ product.id }}">Edit</button>
-                                <button class="btn btn-link btn-sm text-danger button-delete" data-comment_id="{{ comment.id }}" data-product_id="{{ product.id }}">Delete</button>
+                                <button class="btn btn-link btn-sm btn-edit" data-comment_id="{{ comment.id }}"
+                                    data-product_id="{{ product.id }}">Edit</button>
+                                <button class="btn btn-link btn-sm text-danger button-delete"
+                                    data-comment_id="{{ comment.id }}"
+                                    data-product_id="{{ product.id }}">Delete</button>
                             </div>
                             {% endif %}
                         </div>
@@ -248,22 +251,6 @@
                 deleteModal.show();
             });
         }
-
-        document.querySelectorAll(".btn-edit").forEach(button => {
-            button.addEventListener("click", function () {
-                const commentId = this.getAttribute("data-comment_id");
-                const productId = this.getAttribute("data-product_id");
-                const commentBody = document.getElementById(`comment${commentId}`).innerText;
-                const editForm = `
-                    <form method="POST" action="/products/${productId}/edit_comment/${commentId}/">
-                        {% csrf_token %}
-                        <textarea name="body" class="form-control mb-2">${commentBody}</textarea>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </form>
-                `;
-                document.getElementById(`comment${commentId}`).innerHTML = editForm;
-            });
-        });
     });
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -294,4 +281,18 @@
         });
     });
 </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const editButtons = document.querySelectorAll('.btn-edit');
+    
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const commentId = this.getAttribute('data-comment_id');
+                const productId = this.getAttribute('data-product_id');
+                window.location.href = `/products/${productId}/edit_comment/${commentId}/`;
+            });
+        });
+    });
+    </script>
 {% endblock %}
