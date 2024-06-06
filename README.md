@@ -390,10 +390,10 @@ ____
 
 ## Manual Testing
 ____
-![testing](docs/images/testing.png) 
-![testing](docs/images/tst.png) 
-![testing](docs/images/testing2.png) 
-![testing](docs/images/testing3.png) 
+![test](docs/images/testing.png) 
+![test](docs/images/tst.png) 
+![test](docs/images/testing2.png) 
+![test](docs/images/testing3.png) 
 
 ____
 
