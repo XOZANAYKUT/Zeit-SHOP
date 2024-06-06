@@ -470,7 +470,6 @@ Add the following Config Vars in Heroku:
     + [Local Deployment](#local-deployment)
     + [Heroku Deployment](#heroku-deployment)-
     + [django-aullauth Setup](#django-aullauth-setup)
-    + [cloudinary Setup](#cloudinary-Setup)
     + [ElephantSQL Setup](#ElephantSQL-Setup)
     + [AWS Setup](#AWS-Setup)
 
