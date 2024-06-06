@@ -1,5 +1,5 @@
 # Sofa Core
-
+____
  [Sofa Core](https://zeitshoop1-c40db427d283.herokuapp.com/)
 
 Sofa Core is an online platform designed to offer a diverse range of furniture options, allowing users to browse, review, and purchase high-quality sofas. The platform aims to provide a seamless shopping experience, making it easy for users to find the perfect sofa for their needs. With a wide selection of styles, materials, and prices, Sofa stands out by offering detailed product descriptions, user reviews, and personalized recommendations.
@@ -8,12 +8,14 @@ ____
 ![mockup](docs/images/moca.png)
 ____
 ## User Experience (UX)
+____
 A visitor to Sofa is typically an adult who values comfort and style in their living space. They have a keen interest in interior design and enjoy exploring various furniture options to enhance the aesthetics and functionality of their home. Sofa aims to cater to individuals who want to elevate their living environment with high-quality sofas that combine both comfort and elegance. Whether they are seeking inspiration for a cozy living room setup or looking to expand their furniture collection, Sofa provides a comprehensive platform tailored to meet the needs of home enthusiasts who value both style and comfort. The platform ensures a seamless shopping experience, making it easy to find the perfect sofa that fits their personal taste and home decor.
-
-## Follow link for [User Stories](https://github.com/XOZANAYKUT/zeit_shop/issues)
-
+____
+## Follow link for [User Stories](https://github.com/users/XOZANAYKUT/projects/22)
+____
  
 ### Navigation Bar
+____
 - The fully responsive navigation bar on all pages contains links to the home page, wishlist, search button, registration, bag, login pages and is present on every page to allow easy navigation.
 
 - This section will allow users to easily find their desired products through easily accessible buttons. It ensures that users can navigate seamlessly from page to page across all devices, providing a smooth and intuitive browsing experience.
@@ -25,6 +27,7 @@ A visitor to Sofa is typically an adult who values comfort and style in their li
 ![nav](docs/images/nav2.png)
 ____
 ## Landing Page Image
+____
 - Sofa Core's homepage contains basic product information as well as images and information highlighting the company's areas of expertise. When a user clicks on a product URL, they are directed to a page that provides detailed information about the products. In addition, on this page, users can add, delete and rate comments about the product, as well as add the product to their wishlist, thus enabling interactive interaction. 
 - The visual elements effectively emphasise the company's areas of expertise, creating an engaging and informative experience for visitors.
 
@@ -41,12 +44,14 @@ ____
 
 ____
  ### The Footer
+ ____
  - The footer section of Sofa Core's website includes links to social media platforms that allow users to easily connect and stay up to date, as well as links to products for easy access. These links are designed to open in a new tab, ensuring smooth navigation for users.  
  -Social media icons are also prominently displayed, encouraging users to interact with sofa Core content on various platforms.
 
 ![footer](docs/images/footerr.png)
 ____
 ### Search
+____
  "Search Section": The Sofa Core website has a search button that allows users to easily find the products they are looking for by entering keywords. Users can enter keywords to search. If search results are found, users can quickly access the results. However, if no results are found, users are notified with a message that no results were found. This provides a user-friendly experience.
  ____
 ![Search](docs/images/search1.png)
@@ -60,18 +65,21 @@ ____
 
 ____
 ### Register
+____
 - Registering for Sofa Core is easy! Here, they can enjoy many benefits by creating a personalised account. All they have to do is choose a username, provide an email address and choose a strong password and confirm their email address with a confirmation message. Then, they can create their account and embark on an adventure filled with marvellous products from around the world. After signing up, they can have an easier navigation and discover much more.
-
+____
 ![Register](docs/images/register.png)
 
 ___
 ### Login
+____
 - After logged in, users can browse reviews and wish lists, rate, leave their own feedback, and explore additional features on the site.
 
 ![Login](docs/images/login.png)
 ____
 
 ### Shopping Bag
+____
 -  In the Shopping Bag section, you can add the products you like and the prices of the products are automatically calculated and you can increase the number of products and remove or update the product and when you want to buy the product, you can go directly to the order form directly after entering the information after entering the information that the order has been placed and detailed information is given with a thank you message.
 
 ____
@@ -101,6 +109,7 @@ ____
 ____
 
 ### Product Management
+____
 After entering the required information in the product management section, the product can be uploaded, edited and deleted, and a message is displayed on the page showing that these operations have been done successfully. However, this is a process that can only be done by the administrator.
 ____
 ![add](docs/images/add.png)
@@ -112,6 +121,7 @@ ____
 ![add](docs/images/add4.png)
 ____
 ### Rating
+____
 Rating system for the purchased product is shown with 5 stars. also the points given give information about the product to other users. the user can delete the score given and can score again.
 ____
 
@@ -123,6 +133,7 @@ ____
 ____
 
 ### Comment
+____
 There is a comment system for the purchased product. also the comments made inform other users about the products. the user can delete, edit and make more than one comment. After each transaction, a message is given that the transaction has taken place.
 ____
 ![com](docs/images/com.png)
@@ -134,13 +145,10 @@ ____
 ![com](docs/images/com4.png) 
 ____
 ![com](docs/images/com5.png) 
-## Features Left to Implement
--
-
 ____
 
 ## Performance For Desktop
-
+____
 ### Home page performance
 
 ![home](docs/images/desk1.png)
@@ -165,18 +173,19 @@ ____
 ![editi](docs/images/edit.png)
 ____
 ### My Profile  page performance
-
+____
 ![profile](docs/images/pro.png)
 ____
 ### logout  page performance
-
+____
 ![logout](docs/images/log.png)
 ____
 ### Sing up
+____
 ![singup](docs/images/sin.png)
 ____
 ### Login  page performance
-
+____
 ![login](docs/images/login2.png)
 ____
 ### bag  page performance
@@ -184,13 +193,13 @@ ____
 ![bag](docs/images/bag5.png)
 ____
 ### Checkout  page performance
-
+____
 ![check](docs/images/check.png)
-
+____
 ## Performance For Mobile
-
+____
 ### Home page performance
-
+____
 ![home](docs/images/mob.png)
 ____
 
@@ -201,6 +210,7 @@ ____
 
 ____
 ### wishlist  page performance
+____
 
 ![wishlist](docs/images/mob4.png)
 ____
@@ -225,23 +235,32 @@ ____
 ![singup](docs/images/mob7.png)
 ____
 ### Login  page performance
+____
 
 ![login](docs/images/mob8.png)
 ____
-### bag  page performance
+### Bag  page performance
+____
 
 ![bag](docs/images/bag9.png)
 ____
 ### Checkout  page performance
-
+____
 ![check](docs/images/check.png)
+____
+## Facebook page 
+____
 
+![facebook](docs/images/face.png)
+____
 
 ## Data Model
+____
 
 - The Django model definitions given below create models for Order,OrderLineItem, product, rating, UserProfile and comment. 
 
 ### Order Model
+____
 The Order model has the following fields:
 
 - order_number: A unique identifier for the order, generated using UUID.
@@ -261,8 +280,9 @@ The Order model has the following fields:
 - grand_total: The total cost of the order including delivery.
 - original_bag: A text field storing the original shopping bag content.
 - stripe_pid: A field for storing the Stripe payment ID.
+____
 ### Methods:
-
+____
 - _generate_order_number(): Generates a random, unique order number using UUID.
 - update_total(): Updates the grand total each time a line item is added, accounting for delivery costs.
 - save(*args, **kwargs): Overrides the original save method to set the order number if it hasn't been set already.
