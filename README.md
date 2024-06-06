@@ -441,7 +441,7 @@ Add the following Config Vars in Heroku:
 
 ### Deploy
 
-- NB: Ensure in Django settings, DEBUG is False
+- NB: Ensure in Django settings, DEBUG is 'DEVELOPMENT' in os.environ
 - Go to the deploy tab on Heroku and connect to GitHub, then to the required repository.
 - Scroll to the bottom of the deploy page and either click Enable Automatic Deploys for automatic deploys or Deploy - Branch to deploy manually. Manually deployed branches will need re-deploying each time the repo is updated.
 - Click View to view the deployed site.
